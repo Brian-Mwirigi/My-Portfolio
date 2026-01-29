@@ -5,12 +5,12 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const projects = [
-  { title: 'Jarvis', desc: 'AI Assistant', tech: ['Python', 'OpenAI', 'Speech Recognition'], img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/Jarvis', size: 'large' },
+  { title: 'Jarvis', desc: 'AI Assistant', tech: ['Python', 'OpenAI', 'Speech Recognition'], img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80', github: 'https://github.com/brian-mwirigi/Jarvis', size: 'large' },
   { title: 'Deliveroo', desc: 'Parcel tracking', tech: ['TypeScript', 'React', 'Node.js'], img: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80', github: 'https://github.com/valarie-jep/Deliveroo-Frontend', backend: 'https://github.com/A-Barongo/Deliveroo', size: 'medium' },
-  { title: 'Stride Footwear', desc: 'E-commerce', tech: ['React', 'Tailwind', 'Framer Motion'], img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/stride-footwear', size: 'medium' },
-  { title: 'Galaxy Medicare', desc: 'Telemedicine', tech: ['Python', 'Flask', 'JavaScript'], img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/galaxy-medicare', size: 'small' },
+  { title: 'Stride Footwear', desc: 'E-commerce', tech: ['React', 'Tailwind', 'Framer Motion'], img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80', github: 'https://github.com/brian-mwirigi/stride-footwear', size: 'medium' },
+  { title: 'Galaxy Medicare', desc: 'Telemedicine', tech: ['Python', 'Flask', 'JavaScript'], img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80', github: 'https://github.com/brian-mwirigi/galaxy-medicare', size: 'small' },
   { title: 'Real Estate', desc: 'Property mgmt', tech: ['Python', 'PostgreSQL', 'React'], img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80', github: 'https://github.com/Kipkoech854/Real-estate-management', size: 'small' },
-  { title: 'Bot Battlr', desc: 'React app', tech: ['React', 'JavaScript', 'API'], img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/bot-battlr', size: 'small' },
+  { title: 'Bot Battlr', desc: 'React app', tech: ['React', 'JavaScript', 'API'], img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80', github: 'https://github.com/brian-mwirigi/bot-battlr', size: 'small' },
 ]
 
 const extensions = [
@@ -279,9 +279,9 @@ export default function Home() {
                   <span className="w-12 h-12 border border-white rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition">@</span>
                   <span className="text-lg">brianinesh@gmail.com</span>
                 </a>
-                <a href="https://github.com/Brian-Mwirigi" target="_blank" className="flex items-center gap-4 group">
+                <a href="https://github.com/brian-mwirigi" target="_blank" className="flex items-center gap-4 group">
                   <span className="w-12 h-12 border border-white rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition">GH</span>
-                  <span className="text-lg">Brian-Mwirigi</span>
+                  <span className="text-lg">brian-mwirigi</span>
                 </a>
                 <a href="https://linkedin.com/in/brian-munene-890993346" target="_blank" className="flex items-center gap-4 group">
                   <span className="w-12 h-12 border border-white rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition">IN</span>
