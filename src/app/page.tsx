@@ -5,12 +5,19 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const projects = [
-  { title: 'Hospital Management', desc: 'Healthcare platform', tech: ['Python', 'Flask', 'React', 'PostgreSQL'], img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/hospital-management', size: 'large' },
+  { title: 'Jarvis', desc: 'AI Assistant', tech: ['Python', 'OpenAI', 'Speech Recognition'], img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/Jarvis', size: 'large' },
   { title: 'Deliveroo', desc: 'Parcel tracking', tech: ['TypeScript', 'React', 'Node.js'], img: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&q=80', github: 'https://github.com/valarie-jep/Deliveroo-Frontend', backend: 'https://github.com/A-Barongo/Deliveroo', size: 'medium' },
   { title: 'Stride Footwear', desc: 'E-commerce', tech: ['React', 'Tailwind', 'Framer Motion'], img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/stride-footwear', size: 'medium' },
   { title: 'Galaxy Medicare', desc: 'Telemedicine', tech: ['Python', 'Flask', 'JavaScript'], img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/galaxy-medicare', size: 'small' },
   { title: 'Real Estate', desc: 'Property mgmt', tech: ['Python', 'PostgreSQL', 'React'], img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80', github: 'https://github.com/Kipkoech854/Real-estate-management', size: 'small' },
   { title: 'Bot Battlr', desc: 'React app', tech: ['React', 'JavaScript', 'API'], img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80', github: 'https://github.com/Brian-Mwirigi/bot-battlr', size: 'small' },
+]
+
+const extensions = [
+  { title: 'TikTok Video Downloader', desc: 'HD No Watermark', rating: 5, users: 30, version: '1.0', link: 'https://chromewebstore.google.com/detail/idnanafggnifgcdleabgkhknojpbkgbf', color: 'from-pink-500 to-red-500' },
+  { title: 'AI Slop Blocker', desc: 'Filter AI content', rating: 5, users: 53, version: '1.2', link: 'https://chromewebstore.google.com/detail/cnibfnnnmlbhhmojfnlpdiddfbmobdan', color: 'from-orange-500 to-yellow-500' },
+  { title: 'Twitter Thread Downloader', desc: 'Save threads', rating: 5, users: 67, version: '1.4.0', link: 'https://chromewebstore.google.com/detail/hgcajlfkjlepfonhcbhgepdjpfmbfcai', color: 'from-blue-400 to-cyan-400' },
+  { title: 'InstantCurrency', desc: 'Currency converter', rating: 4.67, users: 5, version: '1.0.0', link: 'https://chromewebstore.google.com/detail/plllcajmaikchnknphlajpkmdnahpolo', color: 'from-green-500 to-emerald-500' },
 ]
 
 export default function Home() {
@@ -53,6 +60,13 @@ export default function Home() {
             <span>NAIROBI, KE</span>
             <span>REMOTE OK</span>
           </div>
+          <a 
+            href="/Brian_Mwirigi_Arc_Resume.pdf" 
+            download 
+            className="mt-8 inline-block px-8 py-3 border border-neutral-700 rounded-full text-xs tracking-widest hover:bg-white hover:text-black transition"
+          >
+            DOWNLOAD RESUME
+          </a>
         </motion.div>
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
@@ -122,6 +136,43 @@ export default function Home() {
             <span>REACT</span><span className="text-neutral-800">•</span>
             <span>TYPESCRIPT</span><span className="text-neutral-800">•</span>
           </motion.div>
+        </div>
+      </section>
+
+      {/* CHROME EXTENSIONS */}
+      <section className="py-24 px-4 md:px-8">
+        <div className="mb-12">
+          <p className="text-xs tracking-[0.3em] text-neutral-600 mb-2">CHROME WEB STORE</p>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">EXTENSIONS</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {extensions.map((ext, i) => (
+            <motion.a
+              key={ext.title}
+              href={ext.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-6 border border-neutral-800 rounded-2xl hover:border-neutral-600 transition group block"
+            >
+              <div className={`w-12 h-12 bg-gradient-to-br ${ext.color} rounded-xl mb-4 flex items-center justify-center text-xl font-bold`}>
+                {ext.title.charAt(0)}
+              </div>
+              <h3 className="font-bold text-lg mb-1">{ext.title}</h3>
+              <p className="text-neutral-500 text-sm mb-4">{ext.desc}</p>
+              <div className="flex items-center justify-between text-xs text-neutral-600">
+                <span className="flex items-center gap-1">
+                  <span className="text-yellow-500">★</span> {ext.rating}
+                </span>
+                <span>{ext.users} users</span>
+                <span>v{ext.version}</span>
+              </div>
+            </motion.a>
+          ))}
         </div>
       </section>
 
