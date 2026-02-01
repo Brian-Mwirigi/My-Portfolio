@@ -104,11 +104,6 @@ export default function Home() {
             DOWNLOAD RESUME
           </a>
         </motion.div>
-
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-widest text-neutral-600">SCROLL</span>
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1.5 }} className="w-px h-8 bg-neutral-700" />
-        </div>
       </section>
 
       {/* CLI TOOLS - Featured Section */}
