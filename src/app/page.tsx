@@ -32,6 +32,9 @@ export default function Home() {
             {item}
           </a>
         ))}
+        <a href="/blog" className="px-5 py-2 text-xs uppercase tracking-widest hover:bg-white/10 rounded-full transition">
+          blog
+        </a>
       </nav>
 
       {/* HERO - Centered minimal */}
