@@ -1,5 +1,9 @@
 ---
 title: "aitoken-cli - Track AI API Costs Locally"
+excerpt: "Track AI API costs locally across 41+ models from OpenAI, Anthropic, Google, Azure & Cohere. Privacy-first with local SQLite storage."
+category: TOOLS
+order: 1
+lastUpdated: 2026-02-01
 published: false
 description: "Complete documentation for aitoken-cli - a local-first CLI tool for tracking AI API costs across OpenAI, Anthropic, Google, Azure, and Cohere."
 tags: AI, CLI, OpenAI, Documentation

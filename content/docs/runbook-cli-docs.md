@@ -1,5 +1,9 @@
 ---
 title: "runbook-cli - Remember Project Commands"
+excerpt: "Remember and run project commands from any subfolder. Automatic git root detection with cross-language support."
+category: TOOLS
+order: 3
+lastUpdated: 2026-02-01
 published: false
 description: "Complete documentation for runbook-cli - a CLI tool to remember and run project commands from anywhere in your codebase."
 tags: CLI, Productivity, DevTools, Documentation

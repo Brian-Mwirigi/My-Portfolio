@@ -13,6 +13,36 @@ const projects = [
   { title: 'Bot Battlr', desc: 'React app', tech: ['React', 'JavaScript', 'API'], img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80', github: 'https://github.com/brian-mwirigi/bot-battlr', size: 'small' },
 ]
 
+const cliTools = [
+  { 
+    title: 'aitoken-cli', 
+    desc: 'Track AI API costs locally across OpenAI, Anthropic, Google, Azure & Cohere', 
+    features: ['41+ Models', 'Local SQLite', 'Privacy-First', 'Auto Cost Calc'],
+    npm: 'https://www.npmjs.com/package/aitoken-cli',
+    github: 'https://github.com/brian-mwirigi/aitoken-cli',
+    docs: '/docs/aitoken-cli-docs',
+    color: 'from-blue-500 to-cyan-500'
+  },
+  { 
+    title: 'codesession-cli', 
+    desc: 'Track coding sessions with time, file changes, commits & AI costs', 
+    features: ['Time Tracking', 'File Monitor', 'Commit Logs', 'AI Cost Track'],
+    npm: 'https://www.npmjs.com/package/codesession-cli',
+    github: 'https://github.com/brian-mwirigi/codesession-cli',
+    docs: '/docs/codesession-cli-docs',
+    color: 'from-purple-500 to-pink-500'
+  },
+  { 
+    title: 'runbook-cli', 
+    desc: 'Remember and run project commands from any subfolder', 
+    features: ['Git Root Detect', 'Cross-Language', 'Team Sharing', 'Fast & Light'],
+    npm: 'https://www.npmjs.com/package/runbook-cli',
+    github: 'https://github.com/brian-mwirigi/runbook-cli',
+    docs: '/docs/runbook-cli-docs',
+    color: 'from-green-500 to-emerald-500'
+  },
+]
+
 const extensions = [
   { title: 'TikTok Video Downloader', desc: 'HD No Watermark', rating: 5, users: 30, version: '1.0', link: 'https://chromewebstore.google.com/detail/idnanafggnifgcdleabgkhknojpbkgbf', color: 'from-pink-500 to-red-500' },
   { title: 'AI Slop Blocker', desc: 'Filter AI content', rating: 5, users: 53, version: '1.2', link: 'https://chromewebstore.google.com/detail/cnibfnnnmlbhhmojfnlpdiddfbmobdan', color: 'from-orange-500 to-yellow-500' },
@@ -62,7 +92,7 @@ export default function Home() {
             <span className="h-px w-16 bg-neutral-700" />
           </div>
           <div className="flex justify-center gap-12 text-xs tracking-widest text-neutral-500">
-            <span>50+ PROJECTS</span>
+            <span>3 CLI TOOLS</span>
             <span>NAIROBI, KE</span>
             <span>REMOTE OK</span>
           </div>
@@ -81,6 +111,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CLI TOOLS - Featured Section */}
+      <section className="py-24 px-4 md:px-8 border-t border-neutral-800">
+        <div className="mb-16">
+          <p className="text-xs tracking-[0.3em] text-neutral-600 mb-2">OPEN SOURCE</p>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">CLI TOOLS</h2>
+          <p className="text-neutral-500 max-w-2xl">
+            Command-line tools for tracking AI costs, managing coding sessions, and remembering project commands. Available on npm.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {cliTools.map((tool, i) => (
+            <motion.div
+              key={tool.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/50 p-8 hover:border-neutral-600 transition-all"
+            >
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${tool.color} opacity-20 blur-3xl group-hover:opacity-30 transition`} />
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3 font-mono">{tool.title}</h3>
+                <p className="text-neutral-400 text-sm mb-6 leading-relaxed">{tool.desc}</p>
+                
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {tool.features.map(feature => (
+                    <span key={feature} className="text-xs px-3 py-1.5 bg-neutral-800 rounded-lg text-neutral-400">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-3">
+                  <a href={tool.docs} className="flex-1 px-4 py-2 bg-white text-black rounded-lg text-sm font-medium text-center hover:bg-neutral-200 transition">
+                    Docs
+                  </a>
+                  <a href={tool.npm} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-white hover:text-black transition">
+                    npm
+                  </a>
+                  <a href={tool.github} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-white hover:text-black transition">
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* WORK - Bento grid */}
       <section id="work" className="min-h-screen p-4 md:p-8">
         <div className="mb-12 flex items-end justify-between">
@@ -89,7 +170,7 @@ export default function Home() {
             <h2 className="text-6xl md:text-8xl font-bold tracking-tighter">PROJECTS</h2>
           </div>
           <p className="text-xs text-neutral-600 max-w-xs text-right hidden md:block">
-            Healthcare, e-commerce, and SaaS applications built with modern tech stacks.
+            Full-stack applications including healthcare, e-commerce, and AI projects.
           </p>
         </div>
 

@@ -1,5 +1,9 @@
 ---
 title: "codesession-cli - Track Coding Sessions"
+excerpt: "Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration."
+category: TOOLS
+order: 2
+lastUpdated: 2026-02-01
 published: false
 description: "Complete documentation for codesession-cli - a CLI tool to track coding time, file changes, commits, and AI costs per session."
 tags: CLI, Productivity, DevTools, Documentation
