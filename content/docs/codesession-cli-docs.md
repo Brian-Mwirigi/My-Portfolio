@@ -1,4 +1,4 @@
-﻿---
+---
 title: "codesession-cli - Track Coding Sessions"
 excerpt: "Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration."
 category: TOOLS
@@ -149,7 +149,7 @@ What happens in sequence:
 
 ```
   Done  python my_agent.py
-    14m  â€¢  8 files  â€¢  2 commits  â€¢  $1.43 AI cost
+    14m  •  8 files  •  2 commits  •  $1.43 AI cost
     Top model: claude-3-5-sonnet-20241022
 ```
 
@@ -550,7 +550,7 @@ Once configured, Claude Code can manage its own sessions without any manual comm
 
 ```
   Done  python my_agent.py
-    14m  â€¢  8 files  â€¢  2 commits  â€¢  $1.43 AI cost
+    14m  •  8 files  •  2 commits  •  $1.43 AI cost
     Top model: claude-3-5-sonnet-20241022
 ```
 
@@ -561,18 +561,18 @@ $ cs show
 
 Session: Fix authentication bug
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Status          â”‚ Completed                          â”‚
-â”‚ Started         â”‚ Mar 02, 2026 14:30                 â”‚
-â”‚ Ended           â”‚ Mar 02, 2026 14:44                 â”‚
-â”‚ Duration        â”‚ 14m                                â”‚
-â”‚ Files Changed   â”‚ 8                                  â”‚
-â”‚ Commits         â”‚ 2                                  â”‚
-â”‚ AI Tokens       â”‚ 31,450                             â”‚
-â”‚ AI Cost         â”‚ $1.43                              â”‚
-â”‚ Top Model       â”‚ claude-3-5-sonnet-20241022         â”‚
-â”‚ Notes           â”‚ Resolved null pointer in JWT check â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌─────────────────┬────────────────────────────────────┐
+│ Status          │ Completed                          │
+│ Started         │ Mar 02, 2026 14:30                 │
+│ Ended           │ Mar 02, 2026 14:44                 │
+│ Duration        │ 14m                                │
+│ Files Changed   │ 8                                  │
+│ Commits         │ 2                                  │
+│ AI Tokens       │ 31,450                             │
+│ AI Cost         │ $1.43                              │
+│ Top Model       │ claude-3-5-sonnet-20241022         │
+│ Notes           │ Resolved null pointer in JWT check │
+└─────────────────┴────────────────────────────────────┘
 ```
 
 ### cs list
@@ -582,14 +582,14 @@ $ cs list
 
 Recent Sessions:
 
-â”Œâ”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ ID â”‚ Description                     â”‚ Duration â”‚ Files â”‚ Cost    â”‚
-â”œâ”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ 14 â”‚ Fix authentication bug          â”‚ 14m      â”‚ 8     â”‚ $1.43   â”‚
-â”‚ 13 â”‚ Build recommendation engine     â”‚ 2h 10m   â”‚ 21    â”‚ $6.25   â”‚
-â”‚ 12 â”‚ Refactor payment service        â”‚ 1h 45m   â”‚ 14    â”‚ $3.12   â”‚
-â”‚ 11 â”‚ Add user search with filters    â”‚ 55m      â”‚ 6     â”‚ $0.89   â”‚
-â””â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌────┬─────────────────────────────────┬──────────┬───────┬─────────┐
+│ ID │ Description                     │ Duration │ Files │ Cost    │
+├────┼─────────────────────────────────┼──────────┼───────┼─────────┤
+│ 14 │ Fix authentication bug          │ 14m      │ 8     │ $1.43   │
+│ 13 │ Build recommendation engine     │ 2h 10m   │ 21    │ $6.25   │
+│ 12 │ Refactor payment service        │ 1h 45m   │ 14    │ $3.12   │
+│ 11 │ Add user search with filters    │ 55m      │ 6     │ $0.89   │
+└────┴─────────────────────────────────┴──────────┴───────┴─────────┘
 ```
 
 ### cs stats
@@ -599,15 +599,15 @@ $ cs stats
 
 Overall Statistics:
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Total Sessions    â”‚ 52       â”‚
-â”‚ Total Time        â”‚ 138h 20m â”‚
-â”‚ Average Session   â”‚ 2h 39m   â”‚
-â”‚ Files Changed     â”‚ 412      â”‚
-â”‚ Total Commits     â”‚ 184      â”‚
-â”‚ AI Tokens Used    â”‚ 3.1M     â”‚
-â”‚ Total AI Cost     â”‚ $104.72  â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+┌───────────────────┬──────────┐
+│ Total Sessions    │ 52       │
+│ Total Time        │ 138h 20m │
+│ Average Session   │ 2h 39m   │
+│ Files Changed     │ 412      │
+│ Total Commits     │ 184      │
+│ AI Tokens Used    │ 3.1M     │
+│ Total AI Cost     │ $104.72  │
+└───────────────────┴──────────┘
 ```
 
 ---
