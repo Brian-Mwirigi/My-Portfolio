@@ -1,11 +1,47 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import type { Doc } from '@/lib/docs'
 import { FileText, Calendar } from 'lucide-react'
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, '')  // remove all non-alphanumeric except spaces
+    .replace(/ /g, '-')           // replace each space with - (preserves double-spaces -> double-hyphens)
+}
+
+function extractText(children: React.ReactNode): string {
+  if (typeof children === 'string') return children
+  if (Array.isArray(children)) return children.map(extractText).join('')
+  if (children && typeof children === 'object' && 'props' in (children as object)) {
+    return extractText((children as React.ReactElement).props.children)
+  }
+  return ''
+}
+
+const headingComponents = {
+  h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = slugify(extractText(children))
+    return <h1 id={id} {...props}>{children}</h1>
+  },
+  h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = slugify(extractText(children))
+    return <h2 id={id} {...props}>{children}</h2>
+  },
+  h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = slugify(extractText(children))
+    return <h3 id={id} {...props}>{children}</h3>
+  },
+  h4: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const id = slugify(extractText(children))
+    return <h4 id={id} {...props}>{children}</h4>
+  },
+}
 
 export default function DocContent({ doc }: { doc: Doc }) {
   return (
@@ -69,7 +105,7 @@ export default function DocContent({ doc }: { doc: Doc }) {
               prose-th:bg-neutral-900 prose-th:border prose-th:border-neutral-800 prose-th:p-3
               prose-td:border prose-td:border-neutral-800 prose-td:p-3
             ">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={headingComponents}>
                 {doc.content}
               </ReactMarkdown>
             </div>
