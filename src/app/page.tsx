@@ -306,6 +306,11 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
+              {/* SEO identity block — intentionally subtle */}
+              <p className="text-neutral-700 text-xs mt-8 leading-relaxed">
+                I&apos;m Brian Munene Mwirigi, also known as Brian Mwirigi — a Full Stack Developer and CS student at Strathmore University based in Nairobi, Kenya.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -414,7 +419,7 @@ export default function Home() {
       {/* Footer - Minimal */}
       <footer className="bg-[#0a0a0a] text-white py-8 px-8 border-t border-neutral-800">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
-          <span>© 2026 BRIAN MUNENE</span>
+          <span>© 2026 BRIAN MUNENE MWIRIGI</span>
           <span>NAIROBI, KENYA • UTC+3</span>
           <a href="#home" className="hover:text-white transition">BACK TO TOP ↑</a>
         </div>

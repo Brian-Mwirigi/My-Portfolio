@@ -2,13 +2,23 @@ import './globals.css'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Brian Munene | Full Stack Developer',
-  description: 'Full Stack Developer specializing in React, TypeScript, and Python. Building production-ready applications for healthcare, e-commerce, and SaaS. Based in Nairobi, Kenya. Available for remote work.',
-  keywords: 'Full Stack Developer, React Developer, TypeScript, Python, Flask, Kenya, Remote Developer, Healthcare Apps, SaaS Developer',
+  title: 'Brian Munene Mwirigi | Full Stack Developer — Nairobi, Kenya',
+  description: 'Brian Munene Mwirigi (also known as Brian Mwirigi) is a Full Stack Developer and CS student at Strathmore University, Nairobi, Kenya. Specializing in React, TypeScript, and Python. Building CLI tools, Chrome extensions, and production-ready applications.',
+  keywords: 'Brian Munene Mwirigi, Brian Mwirigi, Brian Munene, Full Stack Developer, React Developer, TypeScript, Python, Flask, Kenya, Nairobi, Strathmore University, Remote Developer, CLI Tools, Chrome Extensions, SaaS Developer',
   openGraph: {
-    title: 'Brian Munene | Full Stack Developer',
-    description: 'Building production-ready applications for healthcare, e-commerce, and SaaS.',
+    title: 'Brian Munene Mwirigi | Full Stack Developer — Nairobi, Kenya',
+    description: 'Brian Munene Mwirigi — Full Stack Developer based in Nairobi, Kenya. Building CLI tools, Chrome extensions, and full-stack applications.',
     type: 'website',
+    url: 'https://www.brianmunene.me',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Brian Munene Mwirigi | Full Stack Developer — Nairobi, Kenya',
+    description: 'Brian Munene Mwirigi — Full Stack Developer based in Nairobi, Kenya.',
+    creator: '@BrianMMwirigi',
+  },
+  alternates: {
+    canonical: 'https://www.brianmunene.me',
   },
 }
 
