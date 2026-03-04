@@ -1,6 +1,21 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllDocs } from '@/lib/docs'
 import DocsGrid from './DocsGrid'
+
+export const metadata: Metadata = {
+  title: 'Docs — Brian Munene Mwirigi',
+  description: 'Documentation for CLI tools and projects by Brian Munene Mwirigi — aitoken-cli, codesession-cli, devmem-cli, runbook-cli, apisnap-cli.',
+  alternates: {
+    canonical: 'https://www.brianmunene.me/docs',
+  },
+  openGraph: {
+    title: 'Docs — Brian Munene Mwirigi',
+    description: 'Documentation for CLI tools and projects by Brian Munene Mwirigi.',
+    url: 'https://www.brianmunene.me/docs',
+    type: 'website',
+  },
+}
 
 export default function DocsPage() {
   const docs = getAllDocs()

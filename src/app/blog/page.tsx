@@ -1,6 +1,21 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/blog'
 import BlogGrid from './BlogGrid'
+
+export const metadata: Metadata = {
+  title: 'Blog — Brian Munene Mwirigi',
+  description: 'Articles and build logs by Brian Munene Mwirigi — CLI tools, Chrome extensions, full-stack development, and learning in public.',
+  alternates: {
+    canonical: 'https://www.brianmunene.me/blog',
+  },
+  openGraph: {
+    title: 'Blog — Brian Munene Mwirigi',
+    description: 'Articles and build logs by Brian Munene Mwirigi.',
+    url: 'https://www.brianmunene.me/blog',
+    type: 'website',
+  },
+}
 
 export default function BlogPage() {
   const posts = getAllPosts()
