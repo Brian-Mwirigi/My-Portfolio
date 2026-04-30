@@ -22,9 +22,47 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Brian Munene Mwirigi',
+  alternateName: ['Brian Mwirigi', 'Brian Munene'],
+  url: 'https://www.brianmunene.me',
+  sameAs: [
+    'https://github.com/brian-mwirigi',
+    'https://linkedin.com/in/brian-munene-mwirigi',
+    'https://x.com/BrianMMwirigi',
+    'https://dev.to/brian_mwirigi',
+    'https://www.npmjs.com/~brian-mwirigi',
+  ],
+  jobTitle: 'Full Stack Developer',
+  description: 'Full Stack Developer and Computer Science student at Strathmore University. Creator of aitoken-cli, codesession-cli, devmem-cli, runbook-cli, and apisnap-cli.',
+  knowsAbout: ['React', 'TypeScript', 'Python', 'Node.js', 'Flask', 'CLI Tools', 'Chrome Extensions', 'Full Stack Development'],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Strathmore University',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Nairobi',
+      addressCountry: 'KE',
+    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Nairobi',
+    addressCountry: 'KE',
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   )
