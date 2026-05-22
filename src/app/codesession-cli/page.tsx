@@ -10,20 +10,16 @@ type LineType = 'cmd' | 'out' | 'gap'
 interface SessionLine { type: LineType; text?: string }
 
 const SESSION_LINES: SessionLine[] = [
-  { type: 'cmd',  text: '$ cs start "Fix auth bug"' },
-  { type: 'out',  text: '● Session #48 started  09:14:32' },
+  { type: 'cmd',  text: '$ cs run python my_agent.py' },
+  { type: 'out',  text: '● Session started  ·  Proxy listening on port 3739' },
   { type: 'gap' },
-  { type: 'cmd',  text: '$ cs log-ai -p anthropic -m claude-sonnet-4-6 \\\n  --prompt-tokens 8000 --completion-tokens 2000' },
-  { type: 'out',  text: '✓ Logged  anthropic / claude-sonnet-4-6  →  $0.048' },
+  { type: 'out',  text: '✓ Agent execution complete' },
   { type: 'gap' },
-  { type: 'cmd',  text: '$ cs status' },
-  { type: 'out',  text: '● Fix auth bug · 1h 23m · 7 files · $0.048' },
-  { type: 'gap' },
-  { type: 'cmd',  text: '$ cs end -n "Auth complete, all tests passing"' },
-  { type: 'out',  text: '✓ Session #48 complete  ·  2h 15m  ·  12 files  ·  5 commits  ·  $2.34' },
-  { type: 'gap' },
-  { type: 'cmd',  text: '$ cs dashboard' },
-  { type: 'out',  text: '◆ Analytics live  →  http://localhost:3737' },
+  { type: 'out',  text: 'Receipt:' },
+  { type: 'out',  text: '  Duration:  14m' },
+  { type: 'out',  text: '  Changes:   3 files touched' },
+  { type: 'out',  text: '  Cost:      $0.14 spent' },
+  { type: 'out',  text: '  Model:     claude-3-5-sonnet' },
 ]
 
 function LiveTerminal() {
@@ -84,7 +80,7 @@ function LiveTerminal() {
         <span className="w-3 h-3 rounded-full bg-[#28c840]" />
         <span className="ml-auto text-[11px] font-mono text-neutral-600">~/projects/my-app  —  zsh</span>
       </div>
-      <div className="p-5 font-mono text-[12px] leading-relaxed min-h-[320px]">
+      <div className="p-5 font-mono text-[12px] leading-relaxed min-h-[320px] overflow-x-auto">
         {SESSION_LINES.slice(0, visible).map((line, i) => (
           <div key={i}>
             {line.type === 'gap' && <div className="h-2" />}
@@ -224,14 +220,22 @@ export default function CodeSessionCLI() {
               </span>
             </h1>
 
-            <p className="text-lg text-neutral-400 max-w-md mb-2 leading-relaxed">
-              Know exactly how long your sessions take,
-              which files you touched, and{' '}
-              <span className="text-white">what your AI calls cost.</span>
+            <p className="text-lg md:text-xl text-neutral-300 max-w-lg mb-6 leading-relaxed font-medium">
+              Stop AI Agents from Burning Your API Budget. Track, cap, and analyze LLM costs locally with zero configuration.
             </p>
-            <p className="text-sm text-neutral-600 mb-10">
-              Automatic. Local. No config.
-            </p>
+
+            {/* Security Guarantees */}
+            <div className="flex flex-col gap-2 mb-10 p-4 rounded-xl border border-green-900/30 bg-green-950/10 max-w-md">
+              <div className="flex items-center gap-2 text-green-400 font-bold text-sm tracking-wide">
+                <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Strict Security Guarantees
+              </div>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                100% Local. SQLite Backed. No Telemetry. No Prompt Logging. We never see your code or your API keys.
+              </p>
+            </div>
 
             {/* Install */}
             <button
@@ -246,17 +250,9 @@ export default function CodeSessionCLI() {
             </button>
 
             <div className="flex flex-wrap gap-3">
-              <a href="https://github.com/brian-mwirigi/codesession-cli" target="_blank" rel="noopener noreferrer"
-                className="px-6 py-2.5 bg-white text-black text-xs tracking-widest font-semibold rounded-full hover:bg-neutral-200 transition">
-                VIEW SOURCE
-              </a>
-              <a href="https://www.npmjs.com/package/codesession-cli" target="_blank" rel="noopener noreferrer"
-                className="px-6 py-2.5 border border-neutral-800 text-xs tracking-widest rounded-full hover:border-neutral-500 transition">
-                NPM PACKAGE
-              </a>
               <Link href="/docs/codesession-cli-docs"
-                className="px-6 py-2.5 border border-neutral-800 text-xs tracking-widest rounded-full hover:border-neutral-500 transition">
-                FULL DOCS
+                className="px-6 py-2.5 bg-white text-black text-xs tracking-widest font-semibold rounded-full hover:bg-neutral-200 transition">
+                VIEW FULL DOCS
               </Link>
             </div>
           </motion.div>
@@ -264,6 +260,31 @@ export default function CodeSessionCLI() {
           {/* Right — terminal */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
             <LiveTerminal />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Dashboard Product Shot (Above the Fold) ── */}
+      <section className="px-6 md:px-12 -mt-16 pb-24 relative z-10 hidden sm:block">
+        <div className="max-w-5xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="rounded-2xl overflow-hidden border border-neutral-800 shadow-[0_0_80px_rgba(168,85,247,0.15)] bg-[#0c0c0c]"
+          >
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-neutral-800 bg-neutral-900/40">
+              <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+              <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+              <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+              <span className="ml-auto text-[11px] font-mono text-neutral-500">cs dashboard (localhost:3737)</span>
+            </div>
+            {/* TODO: temporary URL. Replace with local /public/screenshots/ asset later */}
+            <img 
+              src="https://raw.githubusercontent.com/brian-mwirigi/codesession-cli/main/docs/screenshots/dashboard-overview.png" 
+              alt="codesession-cli Dashboard Overview" 
+              className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition duration-500"
+            />
           </motion.div>
         </div>
       </section>
@@ -538,7 +559,7 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Free */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -546,12 +567,12 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
               viewport={{ once: true }}
               className="p-8 rounded-2xl border border-neutral-800 bg-[#0c0c0c] hover:border-neutral-700 transition flex flex-col"
             >
-              <h3 className="text-xl font-bold mb-2">Free Tier</h3>
-              <div className="text-3xl font-black tracking-tighter mb-6">$0</div>
+              <h3 className="text-xl font-bold mb-2">Free</h3>
+              <div className="text-3xl font-black tracking-tighter mb-6">$0<span className="text-sm font-normal text-neutral-500 tracking-normal"> Forever</span></div>
               <ul className="space-y-4 text-sm text-neutral-400">
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Basic CLI tracking</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Local CLI tracking</li>
                 <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Local SQLite storage</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Basic dashboard overview</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Basic dashboard (localhost)</li>
               </ul>
             </motion.div>
 
@@ -564,18 +585,18 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
               className="p-8 rounded-2xl border border-purple-500/50 bg-[#0c0c0c] relative overflow-hidden flex flex-col"
             >
               <div className="absolute top-0 right-0 bg-purple-500 text-white text-[10px] font-bold tracking-widest px-3 py-1 rounded-bl-lg">POPULAR</div>
-              <h3 className="text-xl font-bold mb-2 text-purple-400">Pro Tier</h3>
-              <div className="text-3xl font-black tracking-tighter mb-2">$29 <span className="text-sm font-normal text-neutral-500 tracking-normal">Lifetime</span></div>
-              <p className="text-xs text-neutral-500 mb-6">Includes a 14-day free trial.</p>
+              <h3 className="text-xl font-bold mb-2 text-purple-400">Pro</h3>
+              <div className="text-3xl font-black tracking-tighter mb-2">$12<span className="text-sm font-normal text-neutral-500 tracking-normal">/mo</span></div>
+              <p className="text-xs text-neutral-500 mb-6">Or $120/yr. 14-day free trial.</p>
               <ul className="space-y-4 text-sm text-neutral-400">
                 <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Everything in Free</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Advanced Insights & Budget Alerts</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Shareable Stat Cards</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> CSV Export & Auto-logging</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Encrypted cloud sync</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Advanced cost anomaly alerts</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Semantic Token Caching Proxy</li>
               </ul>
             </motion.div>
 
-            {/* Enterprise */}
+            {/* Team */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -583,14 +604,41 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
               transition={{ delay: 0.2 }}
               className="p-8 rounded-2xl border border-neutral-800 bg-[#0c0c0c] hover:border-neutral-700 transition flex flex-col"
             >
-              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
-              <div className="text-3xl font-black tracking-tighter mb-6">$19<span className="text-sm font-normal text-neutral-500 tracking-normal">/seat Lifetime</span></div>
+              <h3 className="text-xl font-bold mb-2">Team</h3>
+              <div className="text-3xl font-black tracking-tighter mb-6">$25<span className="text-sm font-normal text-neutral-500 tracking-normal">/seat/mo</span></div>
               <ul className="space-y-4 text-sm text-neutral-400">
                 <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Everything in Pro</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Team Management</li>
-                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Volume discounts</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Shared API budget wallets</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Centralized team web dashboard</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Slack/Teams alerting</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> GitHub Actions CI/CD breaker</li>
               </ul>
             </motion.div>
+            
+            {/* Enterprise */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="p-8 rounded-2xl border border-neutral-800 bg-[#0c0c0c] hover:border-neutral-700 transition flex flex-col"
+            >
+              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+              <div className="text-3xl font-black tracking-tighter mb-6">Custom</div>
+              <ul className="space-y-4 text-sm text-neutral-400">
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Everything in Team</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> SAML SSO (Okta, Entra ID)</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> SOC2 compliance guarantees</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> On-premise proxy deployment</li>
+              </ul>
+            </motion.div>
+          </div>
+          
+          {/* Launch Promo */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-neutral-500">
+              <span className="text-purple-400 font-bold">LAUNCH PROMO:</span> Solo developer? Grab the <span className="text-neutral-300 font-semibold">Pro Lifetime license for $249</span> (Limited time only).
+            </p>
           </div>
         </div>
       </section>
