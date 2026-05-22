@@ -528,6 +528,73 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
         </div>
       </section>
 
+      {/* ── Pricing ── */}
+      <section className="py-24 px-6 md:px-12 border-t border-neutral-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20 text-center">
+            <p className="text-[11px] tracking-[0.35em] text-neutral-600 mb-4">PRICING</p>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter">
+              SIMPLE<br />PLANS.
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Free */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-2xl border border-neutral-800 bg-[#0c0c0c] hover:border-neutral-700 transition flex flex-col"
+            >
+              <h3 className="text-xl font-bold mb-2">Free Tier</h3>
+              <div className="text-3xl font-black tracking-tighter mb-6">$0</div>
+              <ul className="space-y-4 text-sm text-neutral-400">
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Basic CLI tracking</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Local SQLite storage</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Basic dashboard overview</li>
+              </ul>
+            </motion.div>
+
+            {/* Pro */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 rounded-2xl border border-purple-500/50 bg-[#0c0c0c] relative overflow-hidden flex flex-col"
+            >
+              <div className="absolute top-0 right-0 bg-purple-500 text-white text-[10px] font-bold tracking-widest px-3 py-1 rounded-bl-lg">POPULAR</div>
+              <h3 className="text-xl font-bold mb-2 text-purple-400">Pro Tier</h3>
+              <div className="text-3xl font-black tracking-tighter mb-2">$29 <span className="text-sm font-normal text-neutral-500 tracking-normal">Lifetime</span></div>
+              <p className="text-xs text-neutral-500 mb-6">Includes a 14-day free trial.</p>
+              <ul className="space-y-4 text-sm text-neutral-400">
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Everything in Free</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Advanced Insights & Budget Alerts</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Shareable Stat Cards</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> CSV Export & Auto-logging</li>
+              </ul>
+            </motion.div>
+
+            {/* Enterprise */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-8 rounded-2xl border border-neutral-800 bg-[#0c0c0c] hover:border-neutral-700 transition flex flex-col"
+            >
+              <h3 className="text-xl font-bold mb-2">Enterprise</h3>
+              <div className="text-3xl font-black tracking-tighter mb-6">$19<span className="text-sm font-normal text-neutral-500 tracking-normal">/seat Lifetime</span></div>
+              <ul className="space-y-4 text-sm text-neutral-400">
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Everything in Pro</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Team Management</li>
+                <li className="flex items-start gap-3"><span className="text-purple-400 shrink-0">✓</span> Volume discounts</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Final CTA ── */}
       <section className="py-40 px-6 relative overflow-hidden border-t border-neutral-900">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
