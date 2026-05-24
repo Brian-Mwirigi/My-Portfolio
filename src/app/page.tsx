@@ -70,7 +70,7 @@ const extensions = [
 
 const landingPages = [
   { title: 'Jambo Kitchen', url: 'https://jambo-kitchen.vercel.app/', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80' },
-  { title: 'Savanna Black', url: 'https://savanna-black.vercel.app/', img: 'https://images.unsplash.com/photo-1611843467160-25afb8df1074?w=800&q=80' },
+  { title: 'Savanna Black', url: 'https://savanna-black.vercel.app/', img: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80' },
   { title: 'Yoga Studio', url: 'https://yoga-studio-g15v.vercel.app/', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80' },
   { title: 'Stride Footwear', url: 'https://stride-footwear.vercel.app/', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80' },
   { title: 'Kahawa Lounge', url: 'https://kahawa-lounge.vercel.app/', img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&q=80' },
