@@ -69,16 +69,16 @@ const extensions = [
 ]
 
 const landingPages = [
-  { title: 'Jambo Kitchen', url: 'https://jambo-kitchen.vercel.app/' },
-  { title: 'Savanna Black', url: 'https://savanna-black.vercel.app/' },
-  { title: 'Yoga Studio', url: 'https://yoga-studio-g15v.vercel.app/' },
-  { title: 'Stride Footwear', url: 'https://stride-footwear.vercel.app/' },
-  { title: 'Kahawa Lounge', url: 'https://kahawa-lounge.vercel.app/' },
-  { title: 'Solar Omega', url: 'https://solar-omega-swart.vercel.app/' },
-  { title: 'Luxury Ecommerce', url: 'https://ecommerce-luxury-umber.vercel.app/' },
-  { title: 'Aurum Suites', url: 'https://site-aurum-suites.vercel.app/' },
-  { title: 'Black Nature', url: 'https://site-black-nature.vercel.app/' },
-  { title: 'Opulent Jewelry', url: 'https://site-opulent-jewelry.vercel.app/' },
+  { title: 'Jambo Kitchen', url: 'https://jambo-kitchen.vercel.app/', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80' },
+  { title: 'Savanna Black', url: 'https://savanna-black.vercel.app/', img: 'https://images.unsplash.com/photo-1611843467160-25afb8df1074?w=800&q=80' },
+  { title: 'Yoga Studio', url: 'https://yoga-studio-g15v.vercel.app/', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80' },
+  { title: 'Stride Footwear', url: 'https://stride-footwear.vercel.app/', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80' },
+  { title: 'Kahawa Lounge', url: 'https://kahawa-lounge.vercel.app/', img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&q=80' },
+  { title: 'Solar Omega', url: 'https://solar-omega-swart.vercel.app/', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80' },
+  { title: 'Luxury Ecommerce', url: 'https://ecommerce-luxury-umber.vercel.app/', img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80' },
+  { title: 'Aurum Suites', url: 'https://site-aurum-suites.vercel.app/', img: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800&q=80' },
+  { title: 'Black Nature', url: 'https://site-black-nature.vercel.app/', img: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=800&q=80' },
+  { title: 'Opulent Jewelry', url: 'https://site-opulent-jewelry.vercel.app/', img: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80' },
 ]
 
 export default function Home() {
@@ -258,13 +258,17 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 5) * 0.1 }}
-              className="group p-6 border border-neutral-800 rounded-2xl hover:bg-white hover:text-black hover:border-white transition-all flex flex-col justify-between aspect-square"
+              className="group relative overflow-hidden rounded-2xl border border-neutral-800 aspect-square"
             >
-              <div className="flex justify-between items-start">
-                <span className="text-xs tracking-widest opacity-50 font-mono">{(i + 1).toString().padStart(2, '0')}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+              <Image src={page.img} alt={page.title} fill className="object-cover opacity-60 group-hover:scale-110 group-hover:opacity-40 transition-all duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                <div className="flex justify-between items-start text-white">
+                  <span className="text-xs tracking-widest font-mono drop-shadow-md">{(i + 1).toString().padStart(2, '0')}</span>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 group-hover:-translate-y-1 drop-shadow-md">↗</span>
+                </div>
+                <h3 className="font-bold text-xl tracking-tight mt-4 group-hover:tracking-normal transition-all text-white drop-shadow-md">{page.title}</h3>
               </div>
-              <h3 className="font-bold text-xl tracking-tight mt-4 group-hover:tracking-normal transition-all">{page.title}</h3>
             </motion.a>
           ))}
         </div>
