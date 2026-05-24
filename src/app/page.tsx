@@ -68,6 +68,19 @@ const extensions = [
   { title: 'InstantCurrency', desc: 'Currency converter', rating: 4.67, users: 5, version: '1.0.0', link: 'https://chromewebstore.google.com/detail/plllcajmaikchnknphlajpkmdnahpolo', color: 'from-green-500 to-emerald-500' },
 ]
 
+const landingPages = [
+  { title: 'Jambo Kitchen', url: 'https://jambo-kitchen.vercel.app/' },
+  { title: 'Savanna Black', url: 'https://savanna-black.vercel.app/' },
+  { title: 'Yoga Studio', url: 'https://yoga-studio-g15v.vercel.app/' },
+  { title: 'Stride Footwear', url: 'https://stride-footwear.vercel.app/' },
+  { title: 'Kahawa Lounge', url: 'https://kahawa-lounge.vercel.app/' },
+  { title: 'Solar Omega', url: 'https://solar-omega-swart.vercel.app/' },
+  { title: 'Luxury Ecommerce', url: 'https://ecommerce-luxury-umber.vercel.app/' },
+  { title: 'Aurum Suites', url: 'https://site-aurum-suites.vercel.app/' },
+  { title: 'Black Nature', url: 'https://site-black-nature.vercel.app/' },
+  { title: 'Opulent Jewelry', url: 'https://site-opulent-jewelry.vercel.app/' },
+]
+
 export default function Home() {
   const [form, setForm] = useState({ name: '', email: '', msg: '' })
 
@@ -217,6 +230,41 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+            </motion.a>
+          ))}
+        </div>
+      </section>
+
+      {/* LANDING PAGES */}
+      <section className="py-24 px-4 md:px-8 border-t border-neutral-800">
+        <div className="mb-12 flex items-end justify-between">
+          <div>
+            <p className="text-xs tracking-[0.3em] text-neutral-600 mb-2">WEB DEVELOPMENT</p>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">LANDING PAGES</h2>
+          </div>
+          <p className="text-xs text-neutral-600 max-w-xs text-right hidden md:block">
+            A collection of minimalist, high-conversion landing pages and UI experiments.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {landingPages.map((page, i) => (
+            <motion.a
+              key={page.title}
+              href={page.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: (i % 5) * 0.1 }}
+              className="group p-6 border border-neutral-800 rounded-2xl hover:bg-white hover:text-black hover:border-white transition-all flex flex-col justify-between aspect-square"
+            >
+              <div className="flex justify-between items-start">
+                <span className="text-xs tracking-widest opacity-50 font-mono">{(i + 1).toString().padStart(2, '0')}</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+              </div>
+              <h3 className="font-bold text-xl tracking-tight mt-4 group-hover:tracking-normal transition-all">{page.title}</h3>
             </motion.a>
           ))}
         </div>
