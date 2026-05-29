@@ -12,6 +12,7 @@ const nextConfig = {
     return [
       // Legacy routes
       { source: '/codesession-cli', destination: '/costhq', permanent: true },
+      { source: '/docs/codesession-cli-docs', destination: '/docs/costhq-docs', permanent: true },
       // Phantom URLs Google picked up — redirect to home with 301
       { source: '/login', destination: '/', permanent: true },
       { source: '/api/users', destination: '/', permanent: true },
