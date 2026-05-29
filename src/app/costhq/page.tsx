@@ -317,58 +317,44 @@ session.start(){'\n'}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Free */}
             <div className="p-8 rounded-xl border border-slate-200 bg-white flex flex-col hover:shadow-md transition">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Community</h3>
-              <div className="text-4xl font-bold text-slate-900 mb-6">$0<span className="text-sm font-medium text-slate-500"> / perpetual</span></div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Free Tier</h3>
+              <div className="text-4xl font-bold text-slate-900 mb-6">$0<span className="text-sm font-medium text-slate-500"> / forever</span></div>
               <ul className="space-y-4 text-sm text-slate-600 mb-8 flex-grow">
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Core CLI telemetry</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Local SQLite retention</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Localhost dashboard</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Full CLI access & built-in AI pricing</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Local SQLite Database & Git Integration</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Basic Dashboard & session history</li>
               </ul>
-              <button className="w-full py-2.5 rounded border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition">Download</button>
+              <button className="w-full py-2.5 rounded border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition">Download Free</button>
             </div>
 
-            {/* Pro */}
+            {/* Pro Subscription */}
             <div className="p-8 rounded-xl border-2 border-slate-900 bg-white shadow-xl shadow-slate-200/50 relative flex flex-col z-10">
               <div className="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold tracking-widest px-3 py-1 rounded-bl rounded-tr-lg uppercase">Recommended</div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Professional</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Pro Subscription</h3>
               <div className="text-4xl font-bold text-slate-900 mb-2">$12<span className="text-sm font-medium text-slate-500"> / month</span></div>
-              <p className="text-xs text-slate-500 mb-6">Billed annually. 14-day evaluation.</p>
+              <p className="text-xs text-slate-500 mb-6">Billed monthly. Cancel anytime.</p>
               <ul className="space-y-4 text-sm text-slate-600 mb-8 flex-grow">
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> All Community features</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> End-to-end encrypted sync</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Automated anomaly alerts</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Semantic caching proxy</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> The Spend Firewall & Custom Pricing</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Runaway Agent Alerts & Alarms Dashboard</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Advanced Insights (Heatmaps, Hotspots)</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Shareable Stats Card & CSV Export</li>
               </ul>
-              <button className="w-full py-2.5 rounded bg-slate-900 text-white font-semibold hover:bg-slate-800 transition">Start Evaluation</button>
+              <button className="w-full py-2.5 rounded bg-slate-900 text-white font-semibold hover:bg-slate-800 transition">Get Pro</button>
             </div>
 
-            {/* Team */}
+            {/* Pro Lifetime */}
             <div className="p-8 rounded-xl border border-slate-200 bg-white flex flex-col hover:shadow-md transition">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Team</h3>
-              <div className="text-4xl font-bold text-slate-900 mb-6">$25<span className="text-sm font-medium text-slate-500"> / seat / mo</span></div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Pro Lifetime</h3>
+              <div className="text-4xl font-bold text-slate-900 mb-6">$249<span className="text-sm font-medium text-slate-500"> / once</span></div>
               <ul className="space-y-4 text-sm text-slate-600 mb-8 flex-grow">
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> All Professional features</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Shared operational budgets</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Centralized web dashboard</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Notification webhooks</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> All Pro Tier features included forever</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Pay once, own it forever</li>
+                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> Lifetime updates & future Pro features</li>
               </ul>
-              <button className="w-full py-2.5 rounded border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition">Contact Sales</button>
-            </div>
-            
-            {/* Enterprise */}
-            <div className="p-8 rounded-xl border border-slate-200 bg-white flex flex-col hover:shadow-md transition">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Enterprise</h3>
-              <div className="text-4xl font-bold text-slate-900 mb-6">Custom</div>
-              <ul className="space-y-4 text-sm text-slate-600 mb-8 flex-grow">
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> All Team features</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> SAML SSO integration</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> SOC2 compliance</li>
-                <li className="flex items-start gap-3"><svg className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg> On-premise deployment</li>
-              </ul>
-              <button className="w-full py-2.5 rounded border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition">Contact Sales</button>
+              <button className="w-full py-2.5 rounded border border-slate-200 text-slate-700 font-semibold hover:bg-slate-50 transition">Get Lifetime</button>
             </div>
           </div>
         </div>
