@@ -27,9 +27,8 @@ export default function CostHQ() {
 
       {/* ── Nav ── */}
       <nav className="relative z-50 px-6 py-6 flex justify-between items-center max-w-7xl mx-auto bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 bg-blue-600 rounded-sm" />
-          <span className="text-xl font-bold tracking-tight text-slate-900">CostHQ</span>
+        <div className="flex items-center">
+          <img src="/logo/dark.png" alt="CostHQ Logo" className="h-8 w-auto" />
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -405,9 +404,8 @@ session.start(){'\n'}
       {/* ── Footer ── */}
       <footer className="border-t border-slate-200 py-12 px-6 bg-white">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-slate-300 rounded-sm" />
-            <span className="font-semibold text-slate-800">CostHQ</span>
+          <div className="flex items-center">
+            <img src="/logo/dark.png" alt="CostHQ Logo" className="h-6 w-auto opacity-80" />
           </div>
           <p className="text-sm text-slate-500">© 2026 Brian Munene. MIT Licensed. (formerly codesession-cli)</p>
           <div className="flex items-center gap-6 text-sm font-medium text-slate-500">
