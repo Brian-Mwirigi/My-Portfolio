@@ -170,7 +170,7 @@ const MARQUEE_CMDS = [
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
-export default function CodeSessionCLI() {
+export default function CostHQ() {
   const [copied, setCopied] = useState(false)
   const [activeShot, setActiveShot] = useState(0)
 
@@ -188,7 +188,7 @@ export default function CodeSessionCLI() {
         <Link href="/" className="text-[11px] tracking-[0.25em] text-neutral-500 hover:text-white transition font-mono">
           ← brianmunene.me
         </Link>
-        <span className="text-[11px] tracking-[0.2em] text-neutral-600 font-mono">codesession-cli</span>
+        <span className="text-[11px] tracking-[0.2em] text-neutral-600 font-mono">CostHQ</span>
         <a
           href="https://github.com/brian-mwirigi/codesession-cli"
           target="_blank" rel="noopener noreferrer"
@@ -212,11 +212,10 @@ export default function CodeSessionCLI() {
 
             {/* Heading — sr-only gives crawlers the exact keyword; aria-hidden keeps visual for humans */}
             <h1 className="text-[13vw] sm:text-[10vw] lg:text-[5.5rem] xl:text-[6.5rem] font-black leading-[0.88] tracking-tighter mb-8">
-              <span className="sr-only">codesession-cli</span>
+              <span className="sr-only">codesession-cli CostHQ</span>
               <span aria-hidden="true">
-                code<br />
-                <span className="text-transparent [-webkit-text-stroke:1px_rgba(168,85,247,0.6)]">session</span><br />
-                <span className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] font-light text-neutral-600 tracking-normal">—cli</span>
+                Cost<br />
+                <span className="text-transparent [-webkit-text-stroke:1px_rgba(168,85,247,0.6)]">HQ</span>
               </span>
             </h1>
 
@@ -725,7 +724,7 @@ session.<span className="text-yellow-400/80">start</span>(){'\n'}
       {/* ── Footer ── */}
       <footer className="border-t border-neutral-900 py-7 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] text-neutral-700">
-          <span className="font-mono">codesession-cli · MIT · by Brian Munene</span>
+          <span className="font-mono">CostHQ (codesession-cli) · MIT · by Brian Munene</span>
           <span className="font-mono">npm install -g codesession-cli</span>
           <Link href="/" className="hover:text-white transition tracking-widest">
             PORTFOLIO →

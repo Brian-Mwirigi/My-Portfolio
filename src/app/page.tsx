@@ -24,12 +24,12 @@ const cliTools = [
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    title: 'codesession-cli',
-    desc: 'Track coding sessions with time, file changes, commits & AI costs',
+    title: 'CostHQ',
+    desc: 'Track coding sessions with time, file changes, commits & AI costs (formerly codesession-cli)',
     features: ['Time Tracking', 'File Monitor', 'Commit Logs', 'AI Cost Track'],
     npm: 'https://www.npmjs.com/package/codesession-cli',
     github: 'https://github.com/brian-mwirigi/codesession-cli',
-    docs: '/codesession-cli',
+    docs: '/costhq',
     color: 'from-purple-500 to-pink-500'
   },
   { 

@@ -10,6 +10,8 @@ const nextConfig = {
   transpilePackages: ['three'],
   async redirects() {
     return [
+      // Legacy routes
+      { source: '/codesession-cli', destination: '/costhq', permanent: true },
       // Phantom URLs Google picked up — redirect to home with 301
       { source: '/login', destination: '/', permanent: true },
       { source: '/api/users', destination: '/', permanent: true },
