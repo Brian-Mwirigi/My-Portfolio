@@ -1,20 +1,20 @@
 ---
-title: "codesession-cli - Track Coding Sessions"
+title: "CostHQ - Track Coding Sessions"
 excerpt: "Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration."
 category: TOOLS
 order: 2
 lastUpdated: 2026-03-02
 published: true
-description: "Complete documentation for codesession-cli - a developer CLI for tracking session time, file changes, git commits, and AI API costs per coding session."
+description: "Complete documentation for CostHQ (formerly codesession-cli) - a developer CLI for tracking session time, file changes, git commits, and AI API costs per coding session."
 tags: CLI, Productivity, DevTools, AI, Documentation
 cover_image: 
 canonical_url: 
 series: Building CLI Tools
 ---
 
-# codesession-cli Documentation
+# CostHQ Documentation
 
-codesession-cli is a command-line tool for tracking coding sessions. It records how long you code, which files change, which git commits you make, and exactly how much you spend on AI APIs such as Claude and OpenAI. All data is stored locally in a SQLite database - nothing leaves your machine.
+CostHQ (formerly codesession-cli) is a command-line tool for tracking coding sessions. It records how long you code, which files change, which git commits you make, and exactly how much you spend on AI APIs such as Claude and OpenAI. All data is stored locally in a SQLite database - nothing leaves your machine.
 
 Current version: **2.5.1**
 Node.js requirement: **18+**
