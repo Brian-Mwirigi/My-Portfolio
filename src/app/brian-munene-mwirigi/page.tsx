@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Brian Munene Mwirigi — Full Stack Developer | Nairobi, Kenya',
-  description: 'Brian Munene Mwirigi (Brian Mwirigi) is a Full Stack Developer and Computer Science student at Strathmore University, Nairobi, Kenya. Creator of aitoken-cli, codesession-cli, devmem-cli, runbook-cli, apisnap-cli, and multiple Chrome extensions.',
+  description: 'Brian Munene Mwirigi (Brian Mwirigi) is a Full Stack Developer and Computer Science student at Strathmore University, Nairobi, Kenya. Creator of aitoken-cli, CostHQ, devmem-cli, runbook-cli, apisnap-cli, and multiple Chrome extensions.',
   keywords: 'Brian Munene Mwirigi, Brian Mwirigi, Brian Munene, Full Stack Developer Nairobi, Strathmore University developer, Kenya software engineer, CLI tools developer, React TypeScript Python developer',
   openGraph: {
     title: 'Brian Munene Mwirigi — Full Stack Developer | Nairobi, Kenya',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const tools = [
   { name: 'aitoken-cli', desc: 'Track AI API costs locally across OpenAI, Anthropic, Google, Azure & Cohere. 41+ models supported.', npm: 'https://www.npmjs.com/package/aitoken-cli', github: 'https://github.com/brian-mwirigi/aitoken-cli', docs: '/docs/aitoken-cli-docs' },
-  { name: 'codesession-cli', desc: 'Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration.', npm: 'https://www.npmjs.com/package/codesession-cli', github: 'https://github.com/brian-mwirigi/codesession-cli', docs: '/codesession-cli' },
+  { name: 'CostHQ', desc: 'Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration.', npm: 'https://www.npmjs.com/package/codesession-cli', github: 'https://github.com/brian-mwirigi/codesession-cli', docs: '/costhq' },
   { name: 'devmem-cli', desc: 'Give AI assistants persistent memory across all your projects with instant code search and pattern reuse.', npm: 'https://www.npmjs.com/package/devmem-cli', github: 'https://github.com/brian-mwirigi/devmem-cli', docs: '/docs/devmem-cli-docs' },
   { name: 'runbook-cli', desc: 'Remember and run project commands from any subfolder. Never forget a project-specific command again.', npm: 'https://www.npmjs.com/package/runbook-cli', github: 'https://github.com/brian-mwirigi/runbook-cli', docs: '/docs/runbook-cli-docs' },
   { name: 'apisnap-cli', desc: 'Record live API traffic and auto-generate Jest tests, MSW mocks, and OpenAPI documentation.', npm: 'https://www.npmjs.com/package/apisnap-cli', github: 'https://github.com/brian-mwirigi/apisnap-cli', docs: '/docs/apisnap-cli-docs' },

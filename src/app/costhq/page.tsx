@@ -361,8 +361,8 @@ session.start(){'\n'}
       </section>
 
       {/* ── Semantic SEO Block ── */}
-      <section className="sr-only" aria-label="About codesession-cli">
-        <h2>codesession-cli — Free CLI to Track Coding Sessions and AI Costs</h2>
+      <section className="sr-only" aria-label="About CostHQ">
+        <h2>CostHQ — Free CLI to Track Coding Sessions and AI Costs</h2>
         <p>
           CostHQ (formerly codesession-cli) is an open-source Node.js command-line tool published on npm. 
           It tracks developer coding sessions including session duration, file changes, git commits, and AI API costs. 
@@ -377,7 +377,7 @@ session.start(){'\n'}
         </p>
         <h3>Keywords</h3>
         <p>
-          codesession-cli, codesession cli, coding session tracker, code session tracker, AI cost 
+          CostHQ, codesession-cli, codesession cli, coding session tracker, code session tracker, AI cost 
           tracking CLI, AI API cost tracker, track AI costs developer, claude cost tracker, openai 
           cost tracker cli, anthropic cost tracker, gpt4 cost tracking, llm cost tracker, developer 
           session tracker, coding time tracker, terminal session tracker, npm session tracker, 

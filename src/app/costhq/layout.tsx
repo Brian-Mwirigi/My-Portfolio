@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 const BASE = 'https://brianmunene.me'
-const PAGE = `${BASE}/codesession-cli`
-const TITLE = 'codesession-cli — Coding Session & AI Cost Tracker for Developers'
+const PAGE = `${BASE}/costhq`
+const TITLE = 'CostHQ — Coding Session & AI Cost Tracker for Developers'
 const DESC =
   'Track coding sessions, file changes, git commits, and AI API costs from the terminal. Free CLI with web dashboard. Works with Claude, GPT-4, Gemini & more. npm install -g codesession-cli'
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
   title: TITLE,
   description: DESC,
-  applicationName: 'codesession-cli',
+  applicationName: 'CostHQ',
 
   // ── Keywords — every real variation people search ─────────────────────────
   keywords: [
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     url: PAGE,
     title: TITLE,
     description: DESC,
-    siteName: 'Brian Munene — codesession-cli',
+    siteName: 'Brian Munene — CostHQ',
     images: [
       {
         url: 'https://raw.githubusercontent.com/brian-mwirigi/codesession-cli/main/docs/screenshots/dashboard-overview.png',
@@ -132,8 +132,8 @@ const jsonLd = {
     // SoftwareApplication — makes Google show install / rating rich results
     {
       '@type': 'SoftwareApplication',
-      name: 'codesession-cli',
-      alternateName: ['codesession cli', 'cs cli', 'code session tracker'],
+      name: 'CostHQ',
+      alternateName: ['codesession-cli', 'codesession cli', 'cs cli', 'code session tracker'],
       applicationCategory: 'DeveloperApplication',
       applicationSubCategory: 'Developer Productivity Tool',
       operatingSystem: 'Windows, macOS, Linux',
@@ -201,7 +201,7 @@ const jsonLd = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'codesession-cli',
+          name: 'CostHQ',
           item: PAGE,
         },
       ],
@@ -213,15 +213,15 @@ const jsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What is codesession-cli?',
+          name: 'What is CostHQ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'codesession-cli (npm: codesession-cli) is a free, open-source command-line tool that tracks your coding sessions. It automatically logs session duration, file changes, git commits, and AI API costs (Claude, GPT-4, Gemini, etc.) to a local SQLite database — no cloud sync required.',
+            text: 'CostHQ (npm: codesession-cli) is a free, open-source command-line tool that tracks your coding sessions. It automatically logs session duration, file changes, git commits, and AI API costs (Claude, GPT-4, Gemini, etc.) to a local SQLite database — no cloud sync required.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How do I install codesession-cli?',
+          name: 'How do I install CostHQ?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Install globally via npm: `npm install -g codesession-cli`. Requires Node.js and build tools (e.g. `xcode-select --install` on macOS, `sudo apt-get install build-essential` on Linux). Then run `cs start "your task"` to begin tracking.',
@@ -229,15 +229,15 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'How do I track AI API costs with codesession-cli?',
+          name: 'How do I track AI API costs with CostHQ?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Use `cs log-ai -p <provider> -m <model> --prompt-tokens <n> --completion-tokens <n>` after each AI API call. codesession-cli has built-in pricing for 17+ models including Claude, GPT-4o, Gemini, and more. It calculates cost automatically and adds it to the active session.',
+            text: 'Use `cs log-ai -p <provider> -m <model> --prompt-tokens <n> --completion-tokens <n>` after each AI API call. CostHQ has built-in pricing for 17+ models including Claude, GPT-4o, Gemini, and more. It calculates cost automatically and adds it to the active session.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Does codesession-cli store data in the cloud?',
+          name: 'Does CostHQ store data in the cloud?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'No. All data is stored locally in a SQLite database at ~/.codesession/sessions.db. There is no telemetry, no cloud sync, and no external network connections. Your session data and AI costs never leave your machine.',
@@ -245,7 +245,7 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'Does codesession-cli have a web dashboard?',
+          name: 'Does CostHQ have a web dashboard?',
           acceptedAnswer: {
             '@type': 'Answer',
             text: 'Yes. Since v2.0.0, running `cs dashboard` opens a local analytics server at http://localhost:3737. It shows real-time KPIs, 30-day cost projections, daily cost charts, per-model breakdowns, activity heatmaps, and budget alerts. It binds to 127.0.0.1 by default for privacy.',
@@ -253,18 +253,18 @@ const jsonLd = {
         },
         {
           '@type': 'Question',
-          name: 'Can I use codesession-cli with AI agents?',
+          name: 'Can I use CostHQ with AI agents?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. codesession-cli has a full programmatic TypeScript API (`import { AgentSession } from "codesession-cli/agents"`). It supports hard budget caps via BudgetExceededError, mid-session affordability checks, and JSON output mode for CI/CD pipelines. It also ships as an OpenClaw skill on ClawHub.',
+            text: 'Yes. CostHQ has a full programmatic TypeScript API (`import { AgentSession } from "codesession-cli/agents"`). It supports hard budget caps via BudgetExceededError, mid-session affordability checks, and JSON output mode for CI/CD pipelines. It also ships as an OpenClaw skill on ClawHub.',
           },
         },
         {
           '@type': 'Question',
-          name: 'What AI models does codesession-cli support?',
+          name: 'What AI models does CostHQ support?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'codesession-cli ships with built-in pricing for 17+ models including Claude (Anthropic), GPT-4o, GPT-4 (OpenAI), Gemini (Google), Azure OpenAI, and Cohere. You can also add custom model pricing with `cs pricing set <model> <input-price> <output-price>`.',
+            text: 'CostHQ ships with built-in pricing for 17+ models including Claude (Anthropic), GPT-4o, GPT-4 (OpenAI), Gemini (Google), Azure OpenAI, and Cohere. You can also add custom model pricing with `cs pricing set <model> <input-price> <output-price>`.',
           },
         },
       ],
