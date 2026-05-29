@@ -12,7 +12,7 @@ series: Building CLI Tools
 
 > **Notice:** `aitoken-cli` (and `codesession-cli`) have been officially deprecated and completely rebranded into a single, much more robust platform: **CostHQ**.
 
-If you are looking to track AI agent session costs, monitor file changes, track git commits, and enforce budget limits, please use [CostHQ](https://github.com/brian-mwirigi/costhq).
+If you are looking to track AI agent session costs, monitor file changes, track git commits, and enforce budget limits, please use [CostHQ](https://costhq.mintlify.app/).
 
 ### Why the change?
 CostHQ is the professional evolution of aitoken-cli. It introduces:
@@ -34,4 +34,4 @@ npm uninstall -g aitoken-cli
 npm install -g costhq
 ```
 
-For full documentation, setup instructions, and features, visit the official [CostHQ GitHub Repository](https://github.com/brian-mwirigi/costhq).
+For full documentation, setup instructions, and features, visit the official [CostHQ GitHub Repository](https://costhq.mintlify.app/).
