@@ -5,7 +5,7 @@ category: TOOLS
 order: 2
 lastUpdated: 2026-03-02
 published: true
-description: "Complete documentation for CostHQ (formerly codesession-cli) - a developer CLI for tracking session time, file changes, git commits, and AI API costs per coding session."
+description: "Complete documentation for CostHQ (formerly CostHQ) - a developer CLI for tracking session time, file changes, git commits, and AI API costs per coding session."
 tags: CLI, Productivity, DevTools, AI, Documentation
 cover_image: 
 canonical_url: 
@@ -14,7 +14,7 @@ series: Building CLI Tools
 
 # CostHQ Documentation
 
-CostHQ (formerly codesession-cli) is a command-line tool for tracking coding sessions. It records how long you code, which files change, which git commits you make, and exactly how much you spend on AI APIs such as Claude and OpenAI. All data is stored locally in a SQLite database - nothing leaves your machine.
+CostHQ (formerly CostHQ) is a command-line tool for tracking coding sessions. It records how long you code, which files change, which git commits you make, and exactly how much you spend on AI APIs such as Claude and OpenAI. All data is stored locally in a SQLite database - nothing leaves your machine.
 
 Current version: **2.5.1**
 Node.js requirement: **18+**
@@ -50,7 +50,7 @@ License: **MIT**
 
 ## Overview
 
-codesession-cli is designed for developers who work with AI agents and want full visibility into what each task costs - in time, in API dollars, and in code changes.
+CostHQ is designed for developers who work with AI agents and want full visibility into what each task costs - in time, in API dollars, and in code changes.
 
 **Key capabilities:**
 
@@ -59,7 +59,7 @@ codesession-cli is designed for developers who work with AI agents and want full
 - Local HTTP proxy that intercepts Anthropic and OpenAI API calls and logs them to the active session automatically
 - Budget alerts - configurable per-session and per-day spending limits
 - Web dashboard - visual breakdown of sessions, model usage, and cost trends
-- MCP server (`codesession-mcp`) - exposes session management as a Model Context Protocol tool inside Claude Code
+- MCP server (`costhq-mcp`) - exposes session management as a Model Context Protocol tool inside Claude Code
 - Built-in pricing for all major Claude, OpenAI, and Codex models - no manual cost calculation required
 - Local SQLite storage - all data stays on your machine
 - JSON export
@@ -71,7 +71,7 @@ codesession-cli is designed for developers who work with AI agents and want full
 ## Installation
 
 ```bash
-npm install -g codesession-cli
+npm install -g costhq
 ```
 
 This installs three binaries:
@@ -79,8 +79,8 @@ This installs three binaries:
 | Binary | Purpose |
 |--------|---------|
 | `cs` | Main CLI - all session and tracking commands |
-| `codesession` | Alias for `cs` |
-| `codesession-mcp` | Model Context Protocol server |
+| `costhq` | Alias for `cs` |
+| `costhq-mcp` | Model Context Protocol server |
 
 **Build tools requirement**
 
@@ -101,7 +101,7 @@ Starts a session, starts the local proxy, runs your command with the proxy pre-c
 **Option B - Install a skill (recommended for Claude Code / OpenClaw):**
 
 ```bash
-clawhub install codesession
+clawhub install costhq
 ```
 
 The agent tracks itself automatically on every task.
@@ -157,19 +157,19 @@ What happens in sequence:
 
 ### Skill / MCP install - Claude Code and OpenClaw
 
-For Claude Code and OpenClaw users, install the codesession skill once and the agent tracks all its own activity automatically - no `cs run`, no manual steps.
+For Claude Code and OpenClaw users, install the costhq skill once and the agent tracks all its own activity automatically - no `cs run`, no manual steps.
 
 **Install via ClawHub:**
 
 ```bash
-clawhub install codesession
+clawhub install costhq
 ```
 
 **Manual skill install (Claude Code):**
 
 ```bash
 # Copy skill to Claude Code's skills directory
-cp -r $(npm root -g)/codesession-cli/skills/codesession ~/.openclaw/skills/
+cp -r $(npm root -g)/CostHQ/skills/costhq ~/.openclaw/skills/
 ```
 
 **Manual MCP server setup (Claude Code):**
@@ -474,7 +474,7 @@ cs budget --session 2.00
 cs mcp
 ```
 
-Start the Model Context Protocol server. Used to integrate codesession-cli with Claude Code as an MCP tool. See [MCP Server](#mcp-server) for setup instructions.
+Start the Model Context Protocol server. Used to integrate CostHQ with Claude Code as an MCP tool. See [MCP Server](#mcp-server) for setup instructions.
 
 ---
 
@@ -516,14 +516,14 @@ When a limit is reached, the proxy and `cs run` will emit a warning. Sessions ar
 
 ## MCP Server
 
-The `codesession-mcp` binary exposes session management as a Model Context Protocol server, allowing Claude Code to start sessions, log usage, and query session data directly during a task.
+The `costhq-mcp` binary exposes session management as a Model Context Protocol server, allowing Claude Code to start sessions, log usage, and query session data directly during a task.
 
 **Start the MCP server:**
 
 ```bash
 cs mcp
 # or
-codesession-mcp
+costhq-mcp
 ```
 
 **Add to Claude Code's MCP configuration:**
@@ -533,8 +533,8 @@ In your Claude Code settings file, add:
 ```json
 {
   "mcpServers": {
-    "codesession": {
-      "command": "codesession-mcp"
+    "costhq": {
+      "command": "costhq-mcp"
     }
   }
 }
@@ -620,7 +620,7 @@ All session data is stored in a local SQLite database.
 
 | Platform | Path |
 |----------|------|
-| Windows | `C:\Users\<username>\.codesession\sessions.db` |
+| Windows | `C:\Users\<username>\.costhq\sessions.db` |
 | Mac / Linux | `~/.codesession/sessions.db` |
 
 The database is created automatically on first use.
@@ -675,7 +675,7 @@ CREATE TABLE ai_usage (
 
 ```bash
 # Mac / Linux - copy the database file
-cp ~/.codesession/sessions.db ~/backups/codesession-$(date +%Y%m%d).db
+cp ~/.codesession/sessions.db ~/backups/costhq-$(date +%Y%m%d).db
 
 # Export session list as text
 cs list -l 1000 > sessions-export.txt
@@ -687,7 +687,7 @@ cs list -l 1000 > sessions-export.txt
 
 ### Supported model pricing
 
-codesession-cli includes built-in pricing for the following model families. Costs are calculated automatically when the proxy intercepts API calls - no manual `-c` flag required.
+CostHQ includes built-in pricing for the following model families. Costs are calculated automatically when the proxy intercepts API calls - no manual `-c` flag required.
 
 **Anthropic - Claude:**
 - claude-opus-4, claude-sonnet-4, claude-3-7-sonnet
@@ -874,7 +874,7 @@ If using `cs run`, environment variables are set automatically - no manual confi
 echo ~/.codesession/sessions.db
 
 # Windows PowerShell
-echo $env:USERPROFILE\.codesession\sessions.db
+echo $env:USERPROFILE\.costhq\sessions.db
 ```
 
 ### Reset all data
@@ -991,10 +991,10 @@ cs stats > monthly-stats-$(date +%Y-%m).txt
 
 ## Resources
 
-- [npm Package](https://www.npmjs.com/package/codesession-cli)
-- [GitHub Repository](https://github.com/brian-mwirigi/codesession-cli)
-- [Changelog](https://github.com/brian-mwirigi/codesession-cli/blob/main/CHANGELOG.md)
-- [Issues](https://github.com/brian-mwirigi/codesession-cli/issues)
+- [npm Package](https://www.npmjs.com/package/CostHQ)
+- [GitHub Repository](https://github.com/brian-mwirigi/CostHQ)
+- [Changelog](https://github.com/brian-mwirigi/CostHQ/blob/main/CHANGELOG.md)
+- [Issues](https://github.com/brian-mwirigi/CostHQ/issues)
 - [Sponsor on GitHub](https://github.com/sponsors/brian-mwirigi)
 
 ## Related Tools
@@ -1008,7 +1008,7 @@ MIT
 
 ## Contributing
 
-Contributions are welcome. Please open an issue to discuss the change before submitting a pull request. See [CONTRIBUTING.md](https://github.com/brian-mwirigi/codesession-cli/blob/main/CONTRIBUTING.md) for guidelines.
+Contributions are welcome. Please open an issue to discuss the change before submitting a pull request. See [CONTRIBUTING.md](https://github.com/brian-mwirigi/CostHQ/blob/main/CONTRIBUTING.md) for guidelines.
 
 ---
 
