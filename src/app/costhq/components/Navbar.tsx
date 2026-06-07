@@ -1,119 +1,98 @@
 'use client'
 
 import Link from 'next/link'
+import { BookOpen, FileText, Github, Menu, Moon, Package, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navLinks = [
-  { href: '#features', label: 'Features' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '/blog', label: 'Blog' },
-  { href: 'https://github.com/brian-mwirigi/codesession-cli', label: 'Documentation', external: true },
+  { href: '/costhq', label: 'Product', active: true },
+  { href: '/costhq#features', label: 'Ecosystem' },
+  { href: '/costhq/blog', label: 'Blog', icon: BookOpen },
+  { href: 'https://github.com/brian-mwirigi/codesession-cli', label: 'Docs', icon: FileText, external: true },
+  { href: 'https://github.com/brian-mwirigi/codesession-cli', label: 'GitHub', icon: Github, external: true },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
-            <svg className="w-4.5 h-4.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-          </div>
-          <span className="text-lg font-bold tracking-tight text-slate-900">CostHQ</span>
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#172239] bg-[#070b15]/95 backdrop-blur-xl">
+      <div className="mx-auto flex h-[70px] max-w-[1840px] items-center justify-between px-5 md:px-10">
+        <Link href="/costhq" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+          <span className="chq-nav-mark" aria-hidden="true">
+            <Package className="h-4 w-4" />
+          </span>
+          <span className="text-xl font-black tracking-[-0.04em] text-white">CostHQ</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
-              >
+        <div className="hidden items-center gap-3 md:flex">
+          {navLinks.map((link) => {
+            const Icon = link.icon
+            const className = link.active
+              ? 'rounded-xl border border-[#1f2c48] bg-[#0c1322] px-5 py-3 text-lg font-black text-[#00f5c8]'
+              : 'inline-flex items-center gap-2 rounded-xl px-4 py-3 text-lg font-bold text-[#65708d] transition hover:text-white'
+
+            return link.external ? (
+              <a key={link.href + link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {Icon && <Icon className="h-4 w-4" />}
                 {link.label}
               </a>
             ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
-              >
+              <Link key={link.href + link.label} href={link.href} className={className}>
+                {Icon && <Icon className="h-4 w-4" />}
                 {link.label}
               </Link>
             )
-          ))}
-        </div>
-
-        <div className="hidden md:flex items-center gap-3">
+          })}
           <a
-            href="https://github.com/brian-mwirigi/codesession-cli"
+            href="https://www.npmjs.com/package/codesession-cli"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-            aria-label="GitHub"
+            className="rounded-xl border border-[#1f2c48] bg-[#00f5c8] px-4 py-3 text-lg font-black text-[#04100d] transition hover:bg-[#8cffdd]"
           >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
+            Install
           </a>
-          <a
-            href="#"
-            className="bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
-          >
-            Sign In
-          </a>
+          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-[#1f2c48] text-[#94a0bf]" aria-label="Theme">
+            <Moon className="h-5 w-5" />
+          </button>
         </div>
 
         <button
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#1f2c48] text-white md:hidden"
+          onClick={() => setMobileOpen((open) => !open)}
           aria-label="Toggle menu"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            {mobileOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white px-6 py-4 space-y-3">
-          {navLinks.map((link) => (
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm font-medium text-slate-600 hover:text-slate-900 py-2 transition-colors"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block text-sm font-medium text-slate-600 hover:text-slate-900 py-2 transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            )
-          ))}
-          <a
-            href="#"
-            className="block w-full text-center bg-slate-900 text-white text-sm font-semibold px-4 py-2.5 rounded-lg mt-2"
-          >
-            Sign In
-          </a>
+        <div className="border-t border-[#172239] bg-[#070b15] px-5 py-5 md:hidden">
+          <div className="space-y-2">
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href + link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl border border-[#172239] px-4 py-3 font-bold text-[#94a0bf]"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href + link.label}
+                  href={link.href}
+                  className="block rounded-xl border border-[#172239] px-4 py-3 font-bold text-[#94a0bf]"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
+          </div>
         </div>
       )}
     </nav>

@@ -26,7 +26,7 @@ const tools = [
 
 const extensions = [
   { name: 'TikTok Video Downloader', desc: 'Download TikTok videos in HD without watermarks.', link: 'https://chromewebstore.google.com/detail/idnanafggnifgcdleabgkhknojpbkgbf' },
-  { name: 'AI Slop Blocker', desc: 'Automatically filter low-quality AI-generated content from your browsing.', link: 'https://chromewebstore.google.com/detail/cnibfnnnmlbhhmojfnlpdiddfbmobdan' },
+  { name: 'AI Slop Blocker', desc: 'Automatically filter low-quality AI-generated content from your browsing.', link: '/ai-slop-blocker' },
   { name: 'Twitter Thread Downloader', desc: 'Save and export Twitter/X threads to readable formats.', link: 'https://chromewebstore.google.com/detail/hgcajlfkjlepfonhcbhgepdjpfmbfcai' },
   { name: 'InstantCurrency', desc: 'Real-time currency converter that works on any webpage.', link: 'https://chromewebstore.google.com/detail/plllcajmaikchnknphlajpkmdnahpolo' },
 ]
