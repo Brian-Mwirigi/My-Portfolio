@@ -1,91 +1,91 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, FileText, Github, Menu, Moon, Package, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navLinks = [
-  { href: '/costhq', label: 'Product', active: true },
-  { href: '/costhq#features', label: 'Ecosystem' },
-  { href: '/costhq/blog', label: 'Blog', icon: BookOpen },
-  { href: 'https://github.com/brian-mwirigi/codesession-cli', label: 'Docs', icon: FileText, external: true },
-  { href: 'https://github.com/brian-mwirigi/codesession-cli', label: 'GitHub', icon: Github, external: true },
+  { href: '/costhq', label: 'Product' },
+  { href: '/costhq#install', label: 'Install' },
+  { href: '/costhq#pricing', label: 'Pricing' },
+  { href: 'https://costhq.mintlify.app/', label: 'Docs', external: true },
+  { href: 'https://github.com/brian-mwirigi/costhq', label: 'GitHub', external: true },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#172239] bg-[#070b15]/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-[70px] max-w-[1840px] items-center justify-between px-5 md:px-10">
-        <Link href="/costhq" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <span className="chq-nav-mark" aria-hidden="true">
-            <Package className="h-4 w-4" />
-          </span>
-          <span className="text-xl font-black tracking-[-0.04em] text-white">CostHQ</span>
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#e5e5e3] bg-white/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-16 max-w-[1080px] items-center justify-between px-6 md:px-8">
+        <Link href="/costhq" className="text-lg font-semibold tracking-tight text-[#111]" onClick={() => setMobileOpen(false)}>
+          CostHQ
         </Link>
 
-        <div className="hidden items-center gap-3 md:flex">
-          {navLinks.map((link) => {
-            const Icon = link.icon
-            const className = link.active
-              ? 'rounded-xl border border-[#1f2c48] bg-[#0c1322] px-5 py-3 text-lg font-black text-[#00f5c8]'
-              : 'inline-flex items-center gap-2 rounded-xl px-4 py-3 text-lg font-bold text-[#65708d] transition hover:text-white'
-
-            return link.external ? (
-              <a key={link.href + link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
-                {Icon && <Icon className="h-4 w-4" />}
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[#666] transition hover:text-[#111]"
+              >
                 {link.label}
               </a>
             ) : (
-              <Link key={link.href + link.label} href={link.href} className={className}>
-                {Icon && <Icon className="h-4 w-4" />}
+              <Link key={link.label} href={link.href} className="text-sm text-[#666] transition hover:text-[#111]">
                 {link.label}
               </Link>
-            )
-          })}
+            ),
+          )}
           <a
-            href="https://www.npmjs.com/package/codesession-cli"
+            href="https://www.npmjs.com/package/costhq"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#1f2c48] bg-[#00f5c8] px-4 py-3 text-lg font-black text-[#04100d] transition hover:bg-[#8cffdd]"
+            className="bg-[#111] px-5 py-2 text-sm font-medium text-white transition hover:bg-[#333]"
           >
             Install
           </a>
-          <button className="flex h-12 w-12 items-center justify-center rounded-full border border-[#1f2c48] text-[#94a0bf]" aria-label="Theme">
-            <Moon className="h-5 w-5" />
-          </button>
         </div>
 
         <button
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#1f2c48] text-white md:hidden"
-          onClick={() => setMobileOpen((open) => !open)}
+          className="flex h-10 w-10 items-center justify-center text-[#666] md:hidden"
+          onClick={() => setMobileOpen((o) => !o)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileOpen ? (
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M5 5l10 10M15 5L5 15" />
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M3 6h14M3 10h14M3 14h14" />
+            </svg>
+          )}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-[#172239] bg-[#070b15] px-5 py-5 md:hidden">
-          <div className="space-y-2">
+        <div className="border-t border-[#e5e5e3] bg-white px-6 py-4 md:hidden">
+          <div className="space-y-1">
             {navLinks.map((link) =>
               link.external ? (
                 <a
-                  key={link.href + link.label}
+                  key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-xl border border-[#172239] px-4 py-3 font-bold text-[#94a0bf]"
+                  className="block py-2.5 text-sm text-[#666]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
                 </a>
               ) : (
                 <Link
-                  key={link.href + link.label}
+                  key={link.label}
                   href={link.href}
-                  className="block rounded-xl border border-[#172239] px-4 py-3 font-bold text-[#94a0bf]"
+                  className="block py-2.5 text-sm text-[#666]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

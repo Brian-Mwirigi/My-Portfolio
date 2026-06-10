@@ -4,27 +4,25 @@ import Footer from './components/Footer'
 
 const BASE = 'https://brianmunene.me'
 const PAGE = `${BASE}/costhq`
-const TITLE = 'CostHQ - Developer Session Tracking and AI Cost Analytics'
+const TITLE = 'CostHQ - The Circuit Breaker for AI Agents'
 const DESC =
-  'Track coding sessions, file changes, git commits, and API costs from the terminal. Free CLI with a private local dashboard.'
+  'Stop runaway LLM costs before they happen. Enforce hard dollar limits per session, user, or project. Local-first CLI with budget gates, cost ledger, and a private dashboard.'
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   applicationName: 'CostHQ',
   keywords: [
-    'codesession-cli',
     'CostHQ',
+    'AI cost protection',
+    'LLM budget gate',
+    'runaway agent protection',
+    'AI API cost limiter',
     'developer session tracker',
-    'AI cost tracking',
-    'coding time tracker',
-    'developer productivity',
-    'cost analytics',
-    'npm session tracker',
-    'cli time tracking',
-    'git commit tracker',
-    'file change tracker',
-    'local first developer tools',
+    'AI cost tracking CLI',
+    'local-first developer tools',
+    'budget enforcement',
+    'agent loop protection',
   ].join(', '),
   alternates: {
     canonical: PAGE,
@@ -38,14 +36,6 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESC,
     siteName: 'CostHQ',
-    images: [
-      {
-        url: 'https://raw.githubusercontent.com/brian-mwirigi/codesession-cli/main/docs/screenshots/dashboard-overview.png',
-        width: 1280,
-        height: 800,
-        alt: 'CostHQ dashboard for real-time cost analytics and session tracking',
-      },
-    ],
     locale: 'en_US',
   },
   twitter: {
@@ -53,9 +43,6 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESC,
     creator: '@brianmunene',
-    images: [
-      'https://raw.githubusercontent.com/brian-mwirigi/codesession-cli/main/docs/screenshots/dashboard-overview.png',
-    ],
   },
   robots: {
     index: true,
@@ -77,16 +64,15 @@ const jsonLd = {
     {
       '@type': 'SoftwareApplication',
       name: 'CostHQ',
-      alternateName: ['codesession-cli', 'codesession cli', 'cs cli'],
+      alternateName: ['costhq'],
       applicationCategory: 'DeveloperApplication',
-      applicationSubCategory: 'Developer Productivity Tool',
+      applicationSubCategory: 'AI Cost Management',
       operatingSystem: 'Windows, macOS, Linux',
-      softwareVersion: '2.2.0',
       description: DESC,
       url: PAGE,
-      downloadUrl: 'https://www.npmjs.com/package/codesession-cli',
-      installUrl: 'https://www.npmjs.com/package/codesession-cli',
-      codeRepository: 'https://github.com/brian-mwirigi/codesession-cli',
+      downloadUrl: 'https://www.npmjs.com/package/costhq',
+      installUrl: 'https://www.npmjs.com/package/costhq',
+      codeRepository: 'https://github.com/brian-mwirigi/costhq',
       license: 'https://opensource.org/licenses/MIT',
       isAccessibleForFree: true,
       offers: {
@@ -104,17 +90,15 @@ const jsonLd = {
           'https://www.npmjs.com/~brian-mwirigi',
         ],
       },
-      keywords: 'codesession-cli, CostHQ, coding session tracker, AI cost tracking, developer tools, npm, CLI',
       featureList: [
-        'Automatic coding session time tracking',
-        'Git commit capture and logging',
-        'File change monitoring',
-        'API cost logging for commercial and custom models',
-        'Real-time web analytics dashboard',
-        'Budget alerts',
-        'Programmatic TypeScript API',
+        'Hard budget gates with process termination',
+        'Per-session, per-user, and per-project cost ceilings',
+        'Multi-provider cost ledger (OpenAI, Anthropic, Google, Azure, Cohere)',
+        'Git-aware session tracking',
         'Local SQLite storage',
-        'JSON output mode',
+        'Programmatic TypeScript API',
+        'JSON output mode for CI/CD',
+        'Local dashboard on localhost',
       ],
     },
     {
@@ -129,7 +113,7 @@ const jsonLd = {
 
 export default function CostHQLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="costhq">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
