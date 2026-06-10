@@ -414,9 +414,9 @@ export default function Home() {
               </p>
 
               <div className="space-y-6">
-                <a href="mailto:brianinesh@gmail.com" className="flex items-center gap-4 group">
+                <a href="mailto:support@brianmunene.me" className="flex items-center gap-4 group">
                   <span className="w-12 h-12 border border-white rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition">@</span>
-                  <span className="text-lg">brianinesh@gmail.com</span>
+                  <span className="text-lg">support@brianmunene.me</span>
                 </a>
                 <a href="https://github.com/brian-mwirigi" target="_blank" className="flex items-center gap-4 group">
                   <span className="w-12 h-12 border border-white rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition">GH</span>
@@ -429,7 +429,7 @@ export default function Home() {
               </div>
             </div>
 
-            <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:brianinesh@gmail.com?subject=Project from ${form.name}&body=${form.msg}` }} className="space-y-8">
+            <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:support@brianmunene.me?subject=Project from ${form.name}&body=${form.msg}` }} className="space-y-8">
               <div>
                 <input
                   type="text"
