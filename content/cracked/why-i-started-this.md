@@ -13,17 +13,17 @@ I'm Brian. Second year of CS at Strathmore, Nairobi.
 A while back I sat in my room at night and asked an AI a question. 
 What is the actual difference between me and the CS students at Stanford and MIT who are my age and already raising millions?
 
-I wanted it to say luck or rich parents orr connections.
-
+I wanted it to say luck or rich parents or connections.
 
 Let me tell you where I was standing when I asked. I had a registered company, Corvux, with zero clients. The hospitals and SACCOs I'd been calling had stopped picking up.
 I had a credit scoring project that made semi finals of a competition and then we dropped it, because it had no traction.
+
 I'd done a hackathon remotely, built something in 48 hours, didn't win. A chrome extension with a few hundred users. Some CLI tools. Papers I self published that little pple read. A small web agency that pays my livelihood.
 
 Written down like that it looks like a lot and that was the trap. 
 It felt like a lot while I was doing it. Every single one of those things felt like progress on the day I started it.
 
-The answer t the prevoius question is;
+The answer to the prevoius question is;
 
 Those kids have one thing they went deep on. I have seven things I went shallow on.
 
