@@ -12,6 +12,7 @@ export interface CrackedPost {
   week?: number
   phase?: string
   pinned?: boolean
+  pinOrder?: number
   tags: string[]
   content: string
 }
@@ -38,6 +39,7 @@ export function getAllCrackedPosts(): CrackedPost[] {
         week: data.week,
         phase: data.phase,
         pinned: data.pinned ?? false,
+        pinOrder: data.pinOrder ?? 999,
         tags: data.tags || [],
         content,
       }
@@ -46,6 +48,7 @@ export function getAllCrackedPosts(): CrackedPost[] {
   return posts.sort((a, b) => {
     if (a.pinned && !b.pinned) return -1
     if (!a.pinned && b.pinned) return 1
+    if (a.pinned && b.pinned) return a.pinOrder! - b.pinOrder!
     return a.date > b.date ? -1 : 1
   })
 }
@@ -64,6 +67,7 @@ export function getCrackedPostBySlug(slug: string): CrackedPost | null {
       week: data.week,
       phase: data.phase,
       pinned: data.pinned ?? false,
+      pinOrder: data.pinOrder ?? 999,
       tags: data.tags || [],
       content,
     }

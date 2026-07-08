@@ -4,6 +4,31 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { CrackedPost } from '@/lib/cracked'
 
+function PinnedCard({ post, i }: { post: CrackedPost; i: number }) {
+  return (
+    <motion.article
+      key={post.slug}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.1 }}
+    >
+      <Link
+        href={`/cracked/${post.slug}`}
+        className="group block p-8 border border-neutral-700 rounded-2xl bg-neutral-900/30 hover:border-neutral-500 transition"
+      >
+        <div className="flex flex-wrap items-center gap-3 mb-4 text-xs tracking-widest text-neutral-500">
+          {post.phase && (
+            <span className="px-3 py-1 border border-neutral-700 rounded-full">{post.phase}</span>
+          )}
+          <span>PINNED</span>
+        </div>
+        <h2 className="text-3xl font-bold mb-3 group-hover:text-neutral-300 transition">{post.title}</h2>
+        <p className="text-neutral-400">{post.excerpt}</p>
+      </Link>
+    </motion.article>
+  )
+}
+
 export default function CrackedGrid({ posts }: { posts: CrackedPost[] }) {
   const pinned = posts.filter((p) => p.pinned)
   const rest = posts.filter((p) => !p.pinned)
@@ -13,28 +38,9 @@ export default function CrackedGrid({ posts }: { posts: CrackedPost[] }) {
       <div className="max-w-4xl mx-auto space-y-12">
         {pinned.length > 0 && (
           <div className="space-y-4">
-            <p className="text-xs tracking-[0.3em] text-neutral-600">the plan</p>
+            <p className="text-xs tracking-[0.3em] text-neutral-600">why i started this project</p>
             {pinned.map((post, i) => (
-              <motion.article
-                key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  href={`/cracked/${post.slug}`}
-                  className="group block p-8 border border-neutral-700 rounded-2xl bg-neutral-900/30 hover:border-neutral-500 transition"
-                >
-                  <div className="flex flex-wrap items-center gap-3 mb-4 text-xs tracking-widest text-neutral-500">
-                    {post.phase && (
-                      <span className="px-3 py-1 border border-neutral-700 rounded-full">{post.phase}</span>
-                    )}
-                    <span>PINNED</span>
-                  </div>
-                  <h2 className="text-3xl font-bold mb-3 group-hover:text-neutral-300 transition">{post.title}</h2>
-                  <p className="text-neutral-400">{post.excerpt}</p>
-                </Link>
-              </motion.article>
+              <PinnedCard key={post.slug} post={post} i={i} />
             ))}
           </div>
         )}
