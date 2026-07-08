@@ -13,7 +13,7 @@ export default function CrackedGrid({ posts }: { posts: CrackedPost[] }) {
       <div className="max-w-4xl mx-auto space-y-12">
         {pinned.length > 0 && (
           <div className="space-y-4">
-            <p className="text-xs tracking-[0.3em] text-neutral-600">THE PLAN</p>
+            <p className="text-xs tracking-[0.3em] text-neutral-600">the plan</p>
             {pinned.map((post, i) => (
               <motion.article
                 key={post.slug}
@@ -40,14 +40,12 @@ export default function CrackedGrid({ posts }: { posts: CrackedPost[] }) {
         )}
 
         <div className="space-y-4">
-          <p className="text-xs tracking-[0.3em] text-neutral-600">
-            {rest.length > 0 ? 'WEEKLY ARTIFACTS' : 'ARTIFACTS'}
-          </p>
+          <p className="text-xs tracking-[0.3em] text-neutral-600">posts</p>
 
           {rest.length === 0 ? (
             <div className="py-16 px-8 border border-dashed border-neutral-800 rounded-2xl text-center">
-              <p className="text-neutral-500 mb-2">Nothing posted yet.</p>
-              <p className="text-neutral-600 text-sm">Weekly writeups land here — code, numbers, honest lessons.</p>
+              <p className="text-neutral-500 mb-2">Nothing here yet.</p>
+              <p className="text-neutral-600 text-sm">First weekly writeup goes up soon.</p>
             </div>
           ) : (
             rest.map((post, i) => (

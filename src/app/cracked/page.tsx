@@ -5,13 +5,13 @@ import CrackedGrid from './CrackedGrid'
 
 export const metadata: Metadata = {
   title: 'CRACKED — Brian Munene Mwirigi',
-  description: 'Learning in public. Weekly artifacts from the 100-week journey — ML foundations, GPU systems, and open-source inference.',
+  description: 'What I learned this week — bugs, numbers, and the stuff that finally clicked.',
   alternates: {
     canonical: 'https://www.brianmunene.me/cracked',
   },
   openGraph: {
     title: 'CRACKED — Brian Munene Mwirigi',
-    description: 'Learning in public. Weekly artifacts from the 100-week journey.',
+    description: 'What I learned this week — bugs, numbers, and the stuff that finally clicked.',
     url: 'https://www.brianmunene.me/cracked',
     type: 'website',
   },
@@ -32,10 +32,11 @@ export default function CrackedPage() {
 
       <section className="pt-32 pb-16 px-8 md:px-16">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xs tracking-[0.3em] text-neutral-600 mb-4">LEARNING IN PUBLIC</p>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6">CRACKED</h1>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+            Stuff I&apos;m figuring out
+          </h1>
           <p className="text-neutral-400 text-lg max-w-xl leading-relaxed">
-            Raw notes, weekly artifacts, and whatever I actually learned building things. Not polished. Just honest.
+            One post a week on what I actually built.
           </p>
         </div>
       </section>
