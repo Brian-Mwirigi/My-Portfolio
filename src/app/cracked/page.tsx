@@ -4,17 +4,8 @@ import { getAllCrackedPosts } from '@/lib/cracked'
 import CrackedGrid from './CrackedGrid'
 
 export const metadata: Metadata = {
-  title: 'CRACKED — Brian Munene Mwirigi',
-  description: 'What I learned this week — bugs, numbers, and the stuff that finally clicked.',
-  alternates: {
-    canonical: 'https://www.brianmunene.me/cracked',
-  },
-  openGraph: {
-    title: 'CRACKED — Brian Munene Mwirigi',
-    description: 'What I learned this week — bugs, numbers, and the stuff that finally clicked.',
-    url: 'https://www.brianmunene.me/cracked',
-    type: 'website',
-  },
+  title: 'BIP-100 — Project CRACKED',
+  description: 'One post a week on what I actually built or broke. Personal log.',
 }
 
 export default function CrackedPage() {
@@ -22,7 +13,7 @@ export default function CrackedPage() {
 
   return (
     <main className="bg-[#0a0a0a] text-white min-h-screen">
-      <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-6 flex justify-between items-center bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-neutral-800/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-neutral-800/50">
         <Link href="/" className="text-sm tracking-widest hover:text-neutral-400 transition">
           ← BACK
         </Link>
@@ -30,13 +21,13 @@ export default function CrackedPage() {
         <div className="w-12" />
       </nav>
 
-      <section className="pt-32 pb-16 px-8 md:px-16">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+      <section className="pt-20 pb-8 px-6 md:px-10">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
             BIP-100
           </h1>
-          <p className="text-neutral-400 text-lg max-w-xl leading-relaxed">
-            This is personal.
+          <p className="text-neutral-500 text-sm">
+            Personal.
           </p>
         </div>
       </section>
@@ -44,7 +35,7 @@ export default function CrackedPage() {
       <CrackedGrid posts={posts} />
 
       <footer className="border-t border-neutral-800 py-8 px-8">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
+        <div className="max-w-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
           <span>© 2026 BRIAN MUNENE MWIRIGI</span>
           <Link href="/" className="hover:text-white transition">
             BACK TO HOME →

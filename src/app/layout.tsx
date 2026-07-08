@@ -2,6 +2,7 @@ import './globals.css'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.brianmunene.me'),
   title: 'Brian Munene Mwirigi | Full Stack Developer — Nairobi, Kenya',
   description: 'Brian Munene Mwirigi (also known as Brian Mwirigi) is a Full Stack Developer and CS student at Strathmore University, Nairobi, Kenya. Specializing in React, TypeScript, and Python. Building CLI tools, Chrome extensions, and production-ready applications.',
   keywords: 'Brian Munene Mwirigi, Brian Mwirigi, Brian Munene, Full Stack Developer, React Developer, TypeScript, Python, Flask, Kenya, Nairobi, Strathmore University, Remote Developer, CLI Tools, Chrome Extensions, SaaS Developer',
