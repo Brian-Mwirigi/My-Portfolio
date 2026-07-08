@@ -33,10 +33,10 @@ export default function CrackedPage() {
       <section className="pt-32 pb-16 px-8 md:px-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
-            Stuff I&apos;m figuring out
+            BIP-100
           </h1>
           <p className="text-neutral-400 text-lg max-w-xl leading-relaxed">
-            One post a week on what I actually built.
+            This is personal.
           </p>
         </div>
       </section>
