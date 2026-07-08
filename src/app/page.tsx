@@ -100,6 +100,9 @@ export default function Home() {
           <a href="/docs" className="px-5 py-2 text-xs uppercase tracking-widest hover:bg-white/10 rounded-full transition whitespace-nowrap">
             docs
           </a>
+          <a href="/cracked" className="px-5 py-2 text-xs uppercase tracking-widest hover:bg-white/10 rounded-full transition whitespace-nowrap">
+            cracked
+          </a>
         </div>
       </nav>
 

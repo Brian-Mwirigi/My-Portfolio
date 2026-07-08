@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
+import { getAllCrackedPosts } from '@/lib/cracked'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://brianmunene.me'
 
@@ -13,6 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
+  }))
+
+  const crackedPosts = getAllCrackedPosts()
+  const crackedUrls = crackedPosts.map((post) => ({
+    url: `${baseUrl}/cracked/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
   }))
 
   // Static pages
@@ -42,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/cracked`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/docs/costhq-docs`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -55,5 +70,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return [...staticPages, ...blogUrls]
+  return [...staticPages, ...blogUrls, ...crackedUrls]
 }
