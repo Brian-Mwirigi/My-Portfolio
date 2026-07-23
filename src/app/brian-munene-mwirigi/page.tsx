@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 }
 
 const tools = [
+  { name: 'AUX', desc: 'Spotify, for your AI. Vibe DJ, roast cards, party rooms, and auto-DJ as a full Spotify MCP for Cursor and Claude.', npm: 'https://www.npmjs.com/package/spotify-aux', github: 'https://github.com/brian-mwirigi/aux-mcp', docs: '/aux-mcp' },
   { name: 'aitoken-cli', desc: 'Track AI API costs locally across OpenAI, Anthropic, Google, Azure & Cohere. 41+ models supported.', npm: 'https://www.npmjs.com/package/aitoken-cli', github: 'https://github.com/brian-mwirigi/aitoken-cli', docs: '/docs/aitoken-cli-docs' },
   { name: 'CostHQ', desc: 'Track coding sessions with automatic time tracking, file change monitoring, git commit logging, and AI cost integration.', npm: 'https://www.npmjs.com/package/codesession-cli', github: 'https://github.com/brian-mwirigi/codesession-cli', docs: '/costhq' },
   { name: 'devmem-cli', desc: 'Give AI assistants persistent memory across all your projects with instant code search and pattern reuse.', npm: 'https://www.npmjs.com/package/devmem-cli', github: 'https://github.com/brian-mwirigi/devmem-cli', docs: '/docs/devmem-cli-docs' },

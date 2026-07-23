@@ -14,10 +14,19 @@ const projects = [
 ]
 
 const cliTools = [
+  {
+    title: 'AUX',
+    desc: 'Spotify, for your AI — vibe DJ, roast cards, party rooms, and auto-DJ as a full Spotify MCP',
+    features: ['Vibe DJ', 'Roast cards', 'Party rooms', 'Auto-DJ'],
+    npm: 'https://www.npmjs.com/package/spotify-aux',
+    github: 'https://github.com/brian-mwirigi/aux-mcp',
+    docs: '/aux-mcp',
+    color: 'from-emerald-400 to-green-600'
+  },
   { 
     title: 'COBBLE', 
-    desc: 'Minecraft for your AI — Mineflayer co-op bot that chats, designs builds, and fights in your world', 
-    features: ['MCP + Mineflayer', 'Agent designs', 'In-game chat', 'Open source'],
+    desc: 'Minecraft MCP for AI agents — Mineflayer co-op bot that chats, invents builds with mc_design, and fights in your Java world', 
+    features: ['MCP + Mineflayer', 'Any AI agent', 'mc_design builds', 'Open source'],
     npm: 'https://www.npmjs.com/package/cobble-mcp',
     github: 'https://github.com/brian-mwirigi/cobble-mcp',
     docs: '/cobble-mcp',

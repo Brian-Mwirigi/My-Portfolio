@@ -10,6 +10,8 @@ const nextConfig = {
   transpilePackages: ['three'],
   async redirects() {
     return [
+      // COBBLE short URL
+      { source: '/cobble', destination: '/cobble-mcp', permanent: true },
       // Legacy routes
       { source: '/codesession-cli', destination: '/costhq', permanent: true },
       { source: '/docs/codesession-cli-docs', destination: '/docs/costhq-docs', permanent: true },

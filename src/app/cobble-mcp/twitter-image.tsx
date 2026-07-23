@@ -1,8 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt =
-  'COBBLE — Minecraft MCP for AI agents. Mineflayer co-op bot for Claude, Cursor, and any MCP client.'
+export const alt = 'COBBLE — Minecraft for your AI'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -60,7 +59,7 @@ export default async function Image() {
             color: '#ffffffcc',
           }}
         >
-          cobble-mcp · Mineflayer · any MCP agent
+          Mineflayer MCP · any AI agent
         </div>
       </div>
     ),

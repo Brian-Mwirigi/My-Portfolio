@@ -39,10 +39,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/cobble-mcp`,
+      url: `${baseUrl}/aux-mcp`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/cobble-mcp`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1,
     },
     {
       url: `${baseUrl}/costhq`,

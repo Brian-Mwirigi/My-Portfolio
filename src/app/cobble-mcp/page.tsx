@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { faqs } from './seo'
 
 const GH = 'https://github.com/brian-mwirigi/cobble-mcp'
 const NPM = 'https://www.npmjs.com/package/cobble-mcp'
@@ -470,6 +471,59 @@ export default function CobblePage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* SEO FAQ — visible + matches FAQPage schema */}
+        <section
+          id="faq"
+          aria-labelledby="faq-heading"
+          className="relative border-t-4 border-black bg-[#121812]/95 px-4 py-16 md:px-10 md:py-20"
+        >
+          <div className="mx-auto max-w-3xl">
+            <h2
+              id="faq-heading"
+              className="font-pixel text-base text-[#ffff55] sm:text-lg md:text-xl"
+            >
+              FAQ — Minecraft MCP &amp; COBBLE
+            </h2>
+            <p className="font-chat mt-3 text-xl text-white/60">
+              Long answers for humans and search engines.
+            </p>
+            <dl className="mt-10 space-y-6">
+              {faqs.map((f) => (
+                <div key={f.q} className="mc-panel p-5 text-left">
+                  <dt className="font-pixel text-[11px] leading-relaxed text-[#55ff55] sm:text-xs">
+                    {f.q}
+                  </dt>
+                  <dd className="font-chat mt-3 text-xl leading-snug text-white/80">
+                    {f.a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="font-chat mt-8 text-lg text-white/50">
+              Read more:{' '}
+              <Link
+                href="/blog/cobble-mcp-minecraft-ai"
+                className="text-[#55ff55] underline-offset-2 hover:underline"
+              >
+                How COBBLE lets any AI agent play Minecraft
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* Crawlable keyword summary for agents/indexers */}
+        <section className="sr-only" aria-hidden="false">
+          <h2>About cobble-mcp</h2>
+          <p>
+            COBBLE, also known as cobble-mcp, is a free open-source Minecraft MCP
+            server for AI agents. It uses Mineflayer so Claude, Cursor, Windsurf,
+            and other Model Context Protocol clients can join a Minecraft Java
+            Edition world as a co-op bot. Features include in-game chat, mc_design
+            agent architecture, mc_play brain loops, and directed building.
+            Install with npx -y cobble-mcp. Author: Brian Munene Mwirigi.
+          </p>
         </section>
 
         <section className="relative border-t-4 border-black px-4 py-20 text-center md:py-32">
