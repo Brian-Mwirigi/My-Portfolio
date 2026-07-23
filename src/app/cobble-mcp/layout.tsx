@@ -17,7 +17,7 @@ const BASE = 'https://brianmunene.me'
 const PAGE = `${BASE}/cobble-mcp`
 const TITLE = 'COBBLE — Minecraft for your AI'
 const DESC =
-  'Drop Claude into your Minecraft world. Mineflayer co-op bot that chats, invents builds, and fights beside you.'
+  'Drop an AI agent into your Minecraft world. Mineflayer co-op bot that chats, invents builds, and fights beside you.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     'Claude Minecraft',
     'AI co-op building',
     'Model Context Protocol',
-    'Cursor MCP',
+    'MCP Minecraft',
   ].join(', '),
   alternates: { canonical: PAGE },
   authors: [{ name: 'Brian Munene Mwirigi', url: BASE }],
