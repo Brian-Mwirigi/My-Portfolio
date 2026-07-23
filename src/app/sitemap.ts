@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/aux-mcp`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.95,
+      priority: 0.98,
     },
     {
       url: `${baseUrl}/cobble-mcp`,

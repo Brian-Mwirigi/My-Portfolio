@@ -12,6 +12,10 @@ const nextConfig = {
     return [
       // COBBLE short URL
       { source: '/cobble', destination: '/cobble-mcp', permanent: true },
+      // AUX short URL
+      { source: '/aux', destination: '/aux-mcp', permanent: true },
+      { source: '/spotify-aux', destination: '/aux-mcp', permanent: true },
+      { source: '/spotify-mcp', destination: '/aux-mcp', permanent: true },
       // Legacy routes
       { source: '/codesession-cli', destination: '/costhq', permanent: true },
       { source: '/docs/codesession-cli-docs', destination: '/docs/costhq-docs', permanent: true },

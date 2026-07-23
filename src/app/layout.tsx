@@ -37,8 +37,8 @@ const jsonLd = {
     'https://www.npmjs.com/~brian-mwirigi',
   ],
   jobTitle: 'Full Stack Developer',
-  description: 'Full Stack Developer and Computer Science student at Strathmore University. Creator of aitoken-cli, CostHQ, devmem-cli, runbook-cli, and apisnap-cli.',
-  knowsAbout: ['React', 'TypeScript', 'Python', 'Node.js', 'Flask', 'CLI Tools', 'Chrome Extensions', 'Full Stack Development'],
+  description: 'Full Stack Developer and Computer Science student at Strathmore University. Creator of AUX (spotify-aux), COBBLE (cobble-mcp), CostHQ, aitoken-cli, and other open-source developer tools.',
+  knowsAbout: ['React', 'TypeScript', 'Python', 'Node.js', 'Flask', 'CLI Tools', 'Chrome Extensions', 'Full Stack Development', 'Model Context Protocol', 'Spotify MCP', 'AUX', 'COBBLE'],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
     name: 'Strathmore University',
