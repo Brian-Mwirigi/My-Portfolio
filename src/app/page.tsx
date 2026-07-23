@@ -15,6 +15,16 @@ const projects = [
 
 const cliTools = [
   {
+    title: 'triton-blackhole',
+    desc: 'allclose failed — now what? Bisect Triton FP drift without device_print or TRITON_INTERPRET',
+    features: ['Tile bisect', 'bf16-aware', 'ProbeBank', 'CLI + Colab'],
+    npm: 'https://pypi.org/project/triton-blackhole/',
+    registryLabel: 'PyPI',
+    github: 'https://github.com/brian-mwirigi/triton-blackhole',
+    docs: 'https://github.com/brian-mwirigi/triton-blackhole',
+    color: 'from-amber-500 to-orange-600'
+  },
+  {
     title: 'AUX',
     desc: 'Spotify, for your AI — vibe DJ, roast cards, party rooms, and auto-DJ as a full Spotify MCP',
     features: ['Vibe DJ', 'Roast cards', 'Party rooms', 'Auto-DJ'],
@@ -161,9 +171,9 @@ export default function Home() {
       <section className="py-24 px-4 md:px-8 border-t border-neutral-800">
         <div className="mb-16">
           <p className="text-xs tracking-[0.3em] text-neutral-600 mb-2">OPEN SOURCE</p>
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">CLI TOOLS</h2>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">TOOLS</h2>
           <p className="text-neutral-500 max-w-2xl">
-            Command-line tools for tracking AI costs, managing coding sessions, and remembering project commands. Available on npm.
+            Open-source tools — Triton debugging, MCP servers for agents, and developer CLIs.
           </p>
         </div>
 
@@ -196,7 +206,7 @@ export default function Home() {
                     Docs
                   </a>
                   <a href={tool.npm} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-white hover:text-black transition">
-                    npm
+                    {tool.registryLabel || 'npm'}
                   </a>
                   <a href={tool.github} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-white hover:text-black transition">
                     GitHub
