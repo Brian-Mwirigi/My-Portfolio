@@ -5,7 +5,7 @@ import DocsGrid from './DocsGrid'
 
 export const metadata: Metadata = {
   title: 'Docs — Brian Munene Mwirigi',
-  description: 'Documentation for CLI tools and projects by Brian Munene Mwirigi — aitoken-cli, CostHQ, devmem-cli, runbook-cli, apisnap-cli.',
+  description: 'Documentation for CLI tools and projects by Brian Munene Mwirigi — aitoken-cli, CostHQ, runbook-cli.',
   alternates: {
     canonical: 'https://www.brianmunene.me/docs',
   },

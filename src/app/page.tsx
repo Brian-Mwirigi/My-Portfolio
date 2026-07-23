@@ -79,24 +79,6 @@ const cliTools = [
     docs: '/docs/runbook-cli-docs',
     color: 'from-green-500 to-emerald-500'
   },
-  { 
-    title: 'apisnap-cli', 
-    desc: 'Record API calls and auto-generate Jest tests, MSW mocks & OpenAPI docs', 
-    features: ['Auto Tests', 'Mock Gen', 'OpenAPI Docs', 'Real Traffic'],
-    npm: 'https://www.npmjs.com/package/apisnap-cli',
-    github: 'https://github.com/brian-mwirigi/apisnap-cli',
-    docs: '/blog/4-apisnap-cli',
-    color: 'from-orange-500 to-red-500'
-  },
-  { 
-    title: 'devmem-cli', 
-    desc: 'Give AI assistants memory across all your projects with instant code search', 
-    features: ['Index Projects', 'AI Context', 'Fast Search', 'Pattern Reuse'],
-    npm: 'https://www.npmjs.com/package/devmem-cli',
-    github: 'https://github.com/brian-mwirigi/devmem-cli',
-    docs: '/blog/5-devmem-cli',
-    color: 'from-violet-500 to-purple-500'
-  },
 ]
 
 const extensions = [

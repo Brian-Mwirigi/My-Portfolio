@@ -9,7 +9,7 @@ My personal portfolio site, showcasing my CLI tools, Chrome extensions, and full
 
 - **Portfolio Landing Page:** Minimalist, high-conversion design showcasing my best work.
 - **CostHQ (`/costhq`):** Custom landing page built directly into the portfolio for my CostHQ CLI tool. Features product details, accurate pricing tiers ($12/mo, $120 lifetime), and links to Mintlify documentation.
-- **CLI Tools Showcase:** Dedicated section for aitoken-cli, CostHQ, runbook-cli, apisnap-cli, and devmem-cli.
+- **CLI Tools Showcase:** Dedicated section for aitoken-cli, CostHQ, runbook-cli, and other open-source tools.
 - **Chrome Extensions:** Direct links and stats for my published Chrome Web Store extensions.
 - **Custom Email Routing:** Uses Cloudflare Email Routing for the custom `support@brianmunene.me` address.
 
