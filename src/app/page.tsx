@@ -25,6 +25,16 @@ const cliTools = [
     color: 'from-amber-500 to-orange-600'
   },
   {
+    title: 'spec-probe',
+    desc: 'Token-level diagnostics for vLLM speculative decoding — see why draft tokens get rejected, not just the macro rate',
+    features: ['p_draft / p_target', 'EAGLE vs n-gram', 'JSONL traces', 'Colab + UI'],
+    npm: 'https://pypi.org/project/spec-probe/',
+    registryLabel: 'PyPI',
+    github: 'https://github.com/brian-mwirigi/spec-probe',
+    docs: 'https://github.com/brian-mwirigi/spec-probe',
+    color: 'from-sky-500 to-cyan-600'
+  },
+  {
     title: 'AUX',
     desc: 'Spotify, for your AI — vibe DJ, roast cards, party rooms, and auto-DJ as a full Spotify MCP',
     features: ['Vibe DJ', 'Roast cards', 'Party rooms', 'Auto-DJ'],
