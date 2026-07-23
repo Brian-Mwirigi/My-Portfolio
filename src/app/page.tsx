@@ -15,6 +15,15 @@ const projects = [
 
 const cliTools = [
   { 
+    title: 'COBBLE', 
+    desc: 'Minecraft for your AI — Mineflayer co-op bot that chats, designs builds, and fights in your world', 
+    features: ['MCP + Mineflayer', 'Agent designs', 'In-game chat', 'Open source'],
+    npm: 'https://www.npmjs.com/package/cobble-mcp',
+    github: 'https://github.com/brian-mwirigi/cobble-mcp',
+    docs: '/cobble-mcp',
+    color: 'from-green-500 to-emerald-600'
+  },
+  { 
     title: 'aitoken-cli', 
     desc: 'Track AI API costs locally across OpenAI, Anthropic, Google, Azure & Cohere', 
     features: ['41+ Models', 'Local SQLite', 'Privacy-First', 'Auto Cost Calc'],
