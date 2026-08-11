@@ -25,6 +25,8 @@ export function CanvasViewer() {
   const [mode, setMode] = useState<Mode>('drop')
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [sharing, setSharing] = useState(false)
+  const [shortPath, setShortPath] = useState<string | null>(null)
   const [dragging, setDragging] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -71,8 +73,8 @@ export function CanvasViewer() {
     setFileName(file.name)
     setMode('view')
     setError(null)
-    const url = buildShareUrl(text)
-    window.history.replaceState(null, '', url.replace(window.location.origin, ''))
+    setShortPath(null)
+    window.history.replaceState(null, '', '/canvas')
   }, [])
 
   const onDrop = useCallback(
@@ -93,10 +95,7 @@ export function CanvasViewer() {
     [loadText]
   )
 
-  const share = useCallback(async () => {
-    if (!source.trim()) return
-    const url = buildShareUrl(source)
-    window.history.replaceState(null, '', url.replace(window.location.origin, ''))
+  const copyText = async (url: string) => {
     try {
       await navigator.clipboard.writeText(url)
       setCopied(true)
@@ -104,13 +103,67 @@ export function CanvasViewer() {
     } catch {
       window.prompt('Copy this share link:', url)
     }
-  }, [source])
+  }
+
+  const share = useCallback(async () => {
+    if (!source.trim() || sharing) return
+    setSharing(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/canvas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source, fileName }),
+      })
+      const data = (await res.json()) as {
+        url?: string
+        path?: string
+        error?: string
+        fallback?: string
+      }
+
+      if (res.ok && data.path) {
+        setShortPath(data.path)
+        window.history.replaceState(null, '', data.path)
+        await copyText(
+          data.url ?? `${window.location.origin}${data.path}`
+        )
+        return
+      }
+
+      // Fallback: fat hash link (only if short-link API unavailable)
+      const fat = buildShareUrl(source)
+      window.history.replaceState(
+        null,
+        '',
+        fat.replace(window.location.origin, '')
+      )
+      await copyText(fat)
+      if (data.error) {
+        setError(
+          `${data.error} Copied a long fallback link instead — add CANVAS_BINS_TOKEN on Vercel for short URLs.`
+        )
+      }
+    } catch {
+      const fat = buildShareUrl(source)
+      window.history.replaceState(
+        null,
+        '',
+        fat.replace(window.location.origin, '')
+      )
+      await copyText(fat)
+      setError('Short link failed — copied a long fallback link instead.')
+    } finally {
+      setSharing(false)
+    }
+  }, [source, fileName, sharing])
 
   const clear = useCallback(() => {
     setSource('')
     setFileName(null)
     setMode('drop')
     setError(null)
+    setShortPath(null)
     window.history.replaceState(null, '', '/canvas')
   }, [])
 
@@ -153,7 +206,18 @@ export function CanvasViewer() {
           </a>
           <span style={{ color: canvasTokens.stroke.primary }}>/</span>
           <strong style={{ fontSize: 13, fontWeight: 600 }}>Canvas viewer</strong>
-          {fileName ? (
+          {shortPath ? (
+            <code
+              style={{
+                fontSize: 12,
+                color: canvasTokens.text.secondary,
+                fontFamily:
+                  'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+              }}
+            >
+              {shortPath}
+            </code>
+          ) : fileName ? (
             <span
               style={{
                 fontSize: 12,
@@ -173,8 +237,13 @@ export function CanvasViewer() {
               <button type="button" onClick={() => setMode('drop')} style={btnStyle(false)}>
                 Replace
               </button>
-              <button type="button" onClick={share} style={btnStyle(true)}>
-                {copied ? 'Copied' : 'Copy share link'}
+              <button
+                type="button"
+                onClick={share}
+                disabled={sharing}
+                style={btnStyle(true)}
+              >
+                {sharing ? 'Creating…' : copied ? 'Copied' : 'Copy short link'}
               </button>
               <button type="button" onClick={clear} style={btnStyle(false)}>
                 Clear
@@ -205,8 +274,8 @@ export function CanvasViewer() {
             }}
           >
             Anyone can upload a <code style={codeStyle}>.canvas.tsx</code> file,
-            view it like in Cursor, and share a link with teammates. No account.
-            The file stays in the URL — nothing is stored on a server.
+            view it like in Cursor, and share a short link with teammates — like{' '}
+            <code style={codeStyle}>/canvas/a8k2m9qx</code>.
           </p>
 
           <div
@@ -289,12 +358,8 @@ export function CanvasViewer() {
                   if (!source.trim()) return
                   setMode('view')
                   setFileName((f) => f ?? 'pasted.canvas.tsx')
-                  const url = buildShareUrl(source)
-                  window.history.replaceState(
-                    null,
-                    '',
-                    url.replace(window.location.origin, '')
-                  )
+                  setShortPath(null)
+                  window.history.replaceState(null, '', '/canvas')
                 }}
                 style={btnStyle(true)}
               >
@@ -311,9 +376,8 @@ export function CanvasViewer() {
               color: canvasTokens.text.tertiary,
             }}
           >
-            Only <code style={codeStyle}>cursor/canvas</code> imports are allowed
-            (same rules as Cursor). Share links can run whatever is in the file —
-            only open links from people you trust.
+            Only <code style={codeStyle}>cursor/canvas</code> imports are allowed.
+            Short links are public — only share with people you trust.
           </p>
         </div>
       ) : (
@@ -335,7 +399,7 @@ export function CanvasViewer() {
             </div>
           ) : null}
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            {Comp && !error ? <Comp /> : null}
+            {Comp && compiled?.ok ? <Comp /> : null}
           </div>
         </div>
       )}

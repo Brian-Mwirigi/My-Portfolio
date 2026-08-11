@@ -31,7 +31,7 @@ const nextConfig = {
       // Phantom URLs Google picked up — redirect to home with 301
       { source: '/login', destination: '/', permanent: true },
       { source: '/api/users', destination: '/', permanent: true },
-      { source: '/api/:path*', destination: '/', permanent: true },
+      // NOTE: do not blanket-redirect /api/* — /api/canvas powers short share links
     ]
   },
 }
