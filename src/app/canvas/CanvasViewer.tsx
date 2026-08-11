@@ -263,7 +263,7 @@ export function CanvasViewer() {
               letterSpacing: '-0.02em',
             }}
           >
-            Drop a Cursor canvas
+            Free canvas viewer
           </h1>
           <p
             style={{
@@ -273,9 +273,11 @@ export function CanvasViewer() {
               color: canvasTokens.text.secondary,
             }}
           >
-            Anyone can upload a <code style={codeStyle}>.canvas.tsx</code> file,
-            view it like in Cursor, and share a short link with teammates — like{' '}
-            <code style={codeStyle}>/canvas/a8k2m9qx</code>.
+            Drop any <code style={codeStyle}>.canvas.tsx</code> — architecture
+            reviews, product specs, metrics, audits, agent reports — render it
+            live and share a short team link like{' '}
+            <code style={codeStyle}>/canvas/a8k2m9qx</code>. Works with Cursor
+            canvases and anything on the same canvas SDK.
           </p>
 
           <div
@@ -376,8 +378,9 @@ export function CanvasViewer() {
               color: canvasTokens.text.tertiary,
             }}
           >
-            Only <code style={codeStyle}>cursor/canvas</code> imports are allowed.
-            Short links are public — only share with people you trust.
+            Import the canvas UI SDK (<code style={codeStyle}>cursor/canvas</code>{' '}
+            alias). No other packages. Short links are public — only open ones from
+            people you trust.
           </p>
         </div>
       ) : (

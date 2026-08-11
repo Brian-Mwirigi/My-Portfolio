@@ -48,7 +48,10 @@ export async function POST(req: NextRequest) {
     }
     if (!/from\s*['"]cursor\/canvas['"]/.test(source)) {
       return NextResponse.json(
-        { error: 'File must import from "cursor/canvas".' },
+        {
+          error:
+            'File must use the canvas UI SDK (import from "cursor/canvas").',
+        },
         { status: 400 }
       )
     }

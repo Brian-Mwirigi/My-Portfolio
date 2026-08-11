@@ -82,7 +82,7 @@ export function compileCanvasSource(source: string): CompileResult {
       return {
         ok: false,
         error:
-          'Only imports from "cursor/canvas" are allowed. Remove other imports and embed data inline.',
+          'Only the canvas UI SDK import is allowed (from "cursor/canvas"). Remove other imports and embed data inline.',
       }
     }
 
