@@ -11,17 +11,20 @@ import {
   type DragEvent,
 } from 'react'
 import { compileCanvasSource } from '@/lib/canvas-viewer/compile'
+import { detectKind, type DocKind } from '@/lib/canvas-viewer/kind'
 import {
   buildShareUrl,
   readSourceFromLocation,
 } from '@/lib/canvas-viewer/share'
 import { canvasTokens } from '@/lib/cursor-canvas/tokens'
+import { MarkdownView } from './MarkdownView'
 
 type Mode = 'drop' | 'view'
 
 export function CanvasViewer() {
   const [source, setSource] = useState('')
   const [fileName, setFileName] = useState<string | null>(null)
+  const [kind, setKind] = useState<DocKind>('canvas')
   const [mode, setMode] = useState<Mode>('drop')
   const [error, setError] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
@@ -31,15 +34,17 @@ export function CanvasViewer() {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const compiled = useMemo(() => {
-    if (!source.trim()) return null
+    if (kind !== 'canvas' || !source.trim()) return null
     return compileCanvasSource(source)
-  }, [source])
+  }, [kind, source])
 
   useEffect(() => {
     const fromHash = readSourceFromLocation()
     if (fromHash) {
+      const k = detectKind(fromHash)
       setSource(fromHash)
-      setFileName('shared.canvas.tsx')
+      setKind(k)
+      setFileName(k === 'markdown' ? 'shared.md' : 'shared.canvas.tsx')
       setMode('view')
       setError(null)
     }
@@ -47,8 +52,10 @@ export function CanvasViewer() {
     const onHash = () => {
       const next = readSourceFromLocation()
       if (next) {
+        const k = detectKind(next)
         setSource(next)
-        setFileName((f) => f ?? 'shared.canvas.tsx')
+        setKind(k)
+        setFileName((f) => f ?? (k === 'markdown' ? 'shared.md' : 'shared.canvas.tsx'))
         setMode('view')
         setError(null)
       }
@@ -58,19 +65,31 @@ export function CanvasViewer() {
   }, [])
 
   useEffect(() => {
+    if (kind !== 'canvas') {
+      setError(null)
+      return
+    }
     if (!compiled) return
     if (!compiled.ok) setError(compiled.error)
     else setError(null)
-  }, [compiled])
+  }, [compiled, kind])
 
   const loadText = useCallback(async (file: File) => {
-    if (!file.name.endsWith('.tsx') && !file.name.endsWith('.canvas.tsx')) {
-      setError('Drop a .canvas.tsx (or .tsx) file.')
+    const lower = file.name.toLowerCase()
+    const ok =
+      lower.endsWith('.md') ||
+      lower.endsWith('.markdown') ||
+      lower.endsWith('.tsx') ||
+      lower.endsWith('.canvas.tsx')
+    if (!ok) {
+      setError('Drop a .canvas.tsx / .tsx or .md file.')
       return
     }
     const text = await file.text()
+    const k = detectKind(text, file.name)
     setSource(text)
     setFileName(file.name)
+    setKind(k)
     setMode('view')
     setError(null)
     setShortPath(null)
@@ -125,13 +144,10 @@ export function CanvasViewer() {
       if (res.ok && data.path) {
         setShortPath(data.path)
         window.history.replaceState(null, '', data.path)
-        await copyText(
-          data.url ?? `${window.location.origin}${data.path}`
-        )
+        await copyText(data.url ?? `${window.location.origin}${data.path}`)
         return
       }
 
-      // Fallback: fat hash link (only if short-link API unavailable)
       const fat = buildShareUrl(source)
       window.history.replaceState(
         null,
@@ -161,11 +177,22 @@ export function CanvasViewer() {
   const clear = useCallback(() => {
     setSource('')
     setFileName(null)
+    setKind('canvas')
     setMode('drop')
     setError(null)
     setShortPath(null)
     window.history.replaceState(null, '', '/canvas')
   }, [])
+
+  const renderPasted = () => {
+    if (!source.trim()) return
+    const k = detectKind(source, fileName)
+    setKind(k)
+    setFileName((f) => f ?? (k === 'markdown' ? 'pasted.md' : 'pasted.canvas.tsx'))
+    setMode('view')
+    setShortPath(null)
+    window.history.replaceState(null, '', '/canvas')
+  }
 
   const Comp = compiled?.ok ? compiled.Component : null
 
@@ -206,6 +233,19 @@ export function CanvasViewer() {
           </a>
           <span style={{ color: canvasTokens.stroke.primary }}>/</span>
           <strong style={{ fontSize: 13, fontWeight: 600 }}>Canvas viewer</strong>
+          {mode === 'view' ? (
+            <span
+              style={{
+                fontSize: 11,
+                color: canvasTokens.text.tertiary,
+                border: `1px solid ${canvasTokens.stroke.tertiary}`,
+                borderRadius: 999,
+                padding: '2px 8px',
+              }}
+            >
+              {kind === 'markdown' ? 'markdown' : 'canvas'}
+            </span>
+          ) : null}
           {shortPath ? (
             <code
               style={{
@@ -263,7 +303,7 @@ export function CanvasViewer() {
               letterSpacing: '-0.02em',
             }}
           >
-            Free canvas viewer
+            Free canvas & markdown viewer
           </h1>
           <p
             style={{
@@ -273,11 +313,10 @@ export function CanvasViewer() {
               color: canvasTokens.text.secondary,
             }}
           >
-            Drop any <code style={codeStyle}>.canvas.tsx</code> — architecture
-            reviews, product specs, metrics, audits, agent reports — render it
-            live and share a short team link like{' '}
-            <code style={codeStyle}>/canvas/a8k2m9qx</code>. Works with Cursor
-            canvases and anything on the same canvas SDK.
+            Drop a <code style={codeStyle}>.canvas.tsx</code> or{' '}
+            <code style={codeStyle}>.md</code> file — reviews, specs, notes,
+            dashboards, audits — render it live and share a short team link like{' '}
+            <code style={codeStyle}>/canvas/a8k2m9qx</code>.
           </p>
 
           <div
@@ -307,7 +346,8 @@ export function CanvasViewer() {
             }}
           >
             <div style={{ fontSize: 15, fontWeight: 500, marginBottom: 8 }}>
-              Drop <code style={codeStyle}>.canvas.tsx</code> here
+              Drop <code style={codeStyle}>.canvas.tsx</code> or{' '}
+              <code style={codeStyle}>.md</code> here
             </div>
             <div style={{ fontSize: 13, color: canvasTokens.text.secondary }}>
               or click to choose a file
@@ -315,7 +355,7 @@ export function CanvasViewer() {
             <input
               ref={inputRef}
               type="file"
-              accept=".tsx,.canvas.tsx,text/plain"
+              accept=".tsx,.canvas.tsx,.md,.markdown,text/plain,text/markdown"
               style={{ display: 'none' }}
               onChange={onFileInput}
             />
@@ -330,12 +370,12 @@ export function CanvasViewer() {
                 marginBottom: 8,
               }}
             >
-              Or paste source
+              Or paste canvas TSX / markdown
             </label>
             <textarea
               value={source}
               onChange={(e) => setSource(e.target.value)}
-              placeholder={`import { Stack, H1, Text } from "cursor/canvas"\n\nexport default function MyCanvas() {\n  return (\n    <Stack gap={16} style={{ padding: 24 }}>\n      <H1>Hello</H1>\n      <Text tone="secondary">Share this with your team.</Text>\n    </Stack>\n  )\n}`}
+              placeholder={`# Product notes\n\nPaste **markdown** or a \`.canvas.tsx\` file.\n\n- Short links for teammates\n- No account\n- GFM tables supported`}
               rows={12}
               style={{
                 width: '100%',
@@ -356,16 +396,10 @@ export function CanvasViewer() {
               <button
                 type="button"
                 disabled={!source.trim()}
-                onClick={() => {
-                  if (!source.trim()) return
-                  setMode('view')
-                  setFileName((f) => f ?? 'pasted.canvas.tsx')
-                  setShortPath(null)
-                  window.history.replaceState(null, '', '/canvas')
-                }}
+                onClick={renderPasted}
                 style={btnStyle(true)}
               >
-                Render canvas
+                Render
               </button>
             </div>
           </div>
@@ -378,9 +412,9 @@ export function CanvasViewer() {
               color: canvasTokens.text.tertiary,
             }}
           >
-            Import the canvas UI SDK (<code style={codeStyle}>cursor/canvas</code>{' '}
-            alias). No other packages. Short links are public — only open ones from
-            people you trust.
+            Markdown = any <code style={codeStyle}>.md</code>. Canvas = import the
+            UI SDK (<code style={codeStyle}>cursor/canvas</code>). Short links are
+            public — only open ones from people you trust.
           </p>
         </div>
       ) : (
@@ -401,9 +435,13 @@ export function CanvasViewer() {
               {error}
             </div>
           ) : null}
-          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            {Comp && compiled?.ok ? <Comp /> : null}
-          </div>
+          {kind === 'markdown' ? (
+            <MarkdownView source={source} />
+          ) : (
+            <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+              {Comp && compiled?.ok ? <Comp /> : null}
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -51,11 +51,11 @@ const jsonLd = {
         url: 'https://brianmunene.me',
       },
       featureList: [
-        'Upload .canvas.tsx files',
-        'Render interactive canvases in the browser',
+        'Upload .canvas.tsx and Markdown (.md) files',
+        'Render interactive canvases and GFM markdown in the browser',
         'Short shareable links for teams',
-        'Architecture reviews, specs, dashboards, audits',
-        'Compatible with Cursor canvases and canvas SDK files',
+        'Architecture reviews, specs, notes, dashboards, audits',
+        'Compatible with Cursor canvases, canvas SDK files, and markdown',
       ],
     },
     {

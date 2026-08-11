@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { detectKind, storageExt } from '@/lib/canvas-viewer/kind'
 
 export const runtime = 'nodejs'
 
@@ -42,22 +43,24 @@ export async function POST(req: NextRequest) {
     }
     if (source.length > MAX_BYTES) {
       return NextResponse.json(
-        { error: 'Canvas too large (max ~180KB).' },
+        { error: 'File too large (max ~180KB).' },
         { status: 413 }
       )
     }
-    if (!/from\s*['"]cursor\/canvas['"]/.test(source)) {
+
+    const kind = detectKind(source, body.fileName)
+    if (kind === 'canvas' && !/from\s*['"]cursor\/canvas['"]/.test(source)) {
       return NextResponse.json(
         {
           error:
-            'File must use the canvas UI SDK (import from "cursor/canvas").',
+            'Canvas files must use the canvas UI SDK (import from "cursor/canvas"). Or share a .md file instead.',
         },
         { status: 400 }
       )
     }
 
     const id = shortId(8)
-    const path = `${id}.canvas.tsx`
+    const path = `${id}.${storageExt(kind)}`
     const content = Buffer.from(source, 'utf8').toString('base64')
 
     const gh = await fetch(
@@ -71,7 +74,7 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: `share ${id}`,
+          message: `share ${id} (${kind})`,
           content,
           branch: 'main',
         }),
@@ -90,6 +93,7 @@ export async function POST(req: NextRequest) {
     const origin = req.nextUrl.origin
     return NextResponse.json({
       id,
+      kind,
       url: `${origin}/canvas/${id}`,
       path: `/canvas/${id}`,
     })

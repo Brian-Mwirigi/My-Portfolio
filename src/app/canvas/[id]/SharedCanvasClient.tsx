@@ -3,18 +3,27 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { compileCanvasSource } from '@/lib/canvas-viewer/compile'
+import type { DocKind } from '@/lib/canvas-viewer/kind'
 import { canvasTokens } from '@/lib/cursor-canvas/tokens'
+import { MarkdownView } from '../MarkdownView'
 
 export function SharedCanvasClient({
   id,
   source,
+  kind,
+  fileName,
 }: {
   id: string
   source: string
+  kind: DocKind
+  fileName?: string
 }) {
-  const compiled = useMemo(() => compileCanvasSource(source), [source])
+  const compiled = useMemo(() => {
+    if (kind !== 'canvas') return null
+    return compileCanvasSource(source)
+  }, [kind, source])
   const [copied, setCopied] = useState(false)
-  const Comp = compiled.ok ? compiled.Component : null
+  const Comp = compiled?.ok ? compiled.Component : null
 
   const copy = async () => {
     const url = `${window.location.origin}/canvas/${id}`
@@ -73,6 +82,18 @@ export function SharedCanvasClient({
           >
             {id}
           </code>
+          <span
+            style={{
+              fontSize: 11,
+              color: canvasTokens.text.tertiary,
+              border: `1px solid ${canvasTokens.stroke.tertiary}`,
+              borderRadius: 999,
+              padding: '2px 8px',
+            }}
+          >
+            {kind === 'markdown' ? 'markdown' : 'canvas'}
+            {fileName ? ` · ${fileName}` : ''}
+          </span>
         </div>
         <button
           type="button"
@@ -93,7 +114,9 @@ export function SharedCanvasClient({
         </button>
       </header>
 
-      {!compiled.ok ? (
+      {kind === 'markdown' ? (
+        <MarkdownView source={source} />
+      ) : compiled && !compiled.ok ? (
         <div
           style={{
             margin: 16,

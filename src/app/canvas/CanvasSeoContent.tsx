@@ -35,12 +35,12 @@ export function CanvasSeoContent() {
         Share any canvas — not just one IDE
       </h2>
       <p style={{ margin: 0, fontSize: 14, lineHeight: '22px' }}>
-        This is a free online <strong style={{ color: '#E4E4E4EB' }}>canvas viewer</strong> and
-        short-link host for <code style={code}>.canvas.tsx</code> files. Use it for team
-        reviews, investor updates, incident writeups, product fits, or any interactive
-        report that should live as a link — not a screenshot thread. Cursor canvases work;
-        so does anything that speaks the same canvas UI SDK (stacks, cards, tables, stats,
-        charts).
+        This is a free online <strong style={{ color: '#E4E4E4EB' }}>canvas & markdown
+        viewer</strong> and short-link host for <code style={code}>.canvas.tsx</code> and{' '}
+        <code style={code}>.md</code> files. Use it for team reviews, investor updates,
+        incident writeups, product fits, notes, or any report that should live as a link —
+        not a screenshot thread. Cursor canvases, canvas-SDK files, and GFM markdown all
+        work.
       </p>
 
       <h2
@@ -91,7 +91,10 @@ export function CanvasSeoContent() {
         How it works
       </h2>
       <ol style={{ margin: 0, paddingLeft: 18, fontSize: 14, lineHeight: '24px' }}>
-        <li>Drop or paste a <code style={code}>.canvas.tsx</code> file</li>
+        <li>
+          Drop or paste a <code style={code}>.canvas.tsx</code> or{' '}
+          <code style={code}>.md</code> file
+        </li>
         <li>Preview the live render in your browser</li>
         <li>Copy a short link like <code style={code}>/canvas/a8k2m9qx</code></li>
         <li>Send it to teammates — they see the same canvas, no install</li>

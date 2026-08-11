@@ -15,6 +15,16 @@ const projects = [
 
 const cliTools = [
   {
+    title: 'Canvas Viewer',
+    desc: 'Drop .canvas.tsx or .md — reviews, specs, notes, dashboards — render live and share a short team link',
+    features: ['Canvas + MD', 'Short links', 'No account', 'Team share'],
+    npm: 'https://brianmunene.me/canvas',
+    registryLabel: 'Open',
+    github: 'https://brianmunene.me/canvas',
+    docs: '/canvas',
+    color: 'from-zinc-400 to-neutral-600'
+  },
+  {
     title: 'triton-blackhole',
     desc: 'allclose failed — now what? Bisect Triton FP drift without device_print or TRITON_INTERPRET',
     features: ['Tile bisect', 'bf16-aware', 'ProbeBank', 'CLI + Colab'],
