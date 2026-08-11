@@ -1,3 +1,5 @@
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,6 +10,13 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['three'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'cursor/canvas': path.resolve(__dirname, 'src/lib/cursor-canvas/index.ts'),
+    }
+    return config
+  },
   async redirects() {
     return [
       // COBBLE short URL

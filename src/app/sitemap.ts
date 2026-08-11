@@ -5,10 +5,8 @@ import { getAllCrackedPosts } from '@/lib/cracked'
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://brianmunene.me'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Get all blog posts
   const posts = getAllPosts()
-  
-  // Blog post URLs
+
   const blogUrls = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
@@ -24,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // Static pages
   const staticPages = [
     {
       url: baseUrl,
@@ -55,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/canvas`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/docs`,
