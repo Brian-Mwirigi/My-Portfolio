@@ -824,7 +824,7 @@ export default function AuxPage() {
           <div className="mt-4 grid gap-2 sm:grid-cols-3">
             {[
               'npx -y spotify-aux login',
-              'npx -y spotify-aux demo',
+              'npx -y spotify-aux openclaw',
               'npx -y spotify-aux web',
             ].map((cmd) => (
               <button
